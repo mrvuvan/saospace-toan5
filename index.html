@@ -1069,7 +1069,35 @@
         #qr-code-canvas { max-width:100%; height:auto; }
         #qr-url-input { min-width:0; }
         .qr-share-grid > * { min-width:0; }
+        @media (max-width:900px) {
+            .grid-2col { grid-template-columns:minmax(0,1fr) !important; }
+            .grid-2col > * { min-width:0; max-width:100%; }
+        }
         @media (max-width:760px) {
+            header { padding:12px; }
+            .header-left, .header-title-row, .projector-toolbar { min-width:0; max-width:100%; }
+            .header-title-row h1 { font-size:18px; overflow-wrap:anywhere; }
+            .projector-toolbar select, .tool-pill-btn { min-width:0; max-width:100%; }
+            .tool-pill-btn { white-space:normal; text-align:left; }
+            .nav-tabs { grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; padding:8px; }
+            .tab-btn { min-width:0; }
+            .tab-btn:last-child { grid-column:1 / -1; }
+            .station { padding:10px 8px; }
+            .panel { padding:12px; min-width:0; }
+            .scoreboard, .kpi-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+            .options-grid { grid-template-columns:minmax(0,1fr); }
+            .quiz-question-bar { flex-wrap:wrap; }
+            .formula-banner { padding:10px; font-size:16px; overflow-wrap:anywhere; }
+            .formula-banner div, .formula-banner span { min-width:0; max-width:100%; }
+            .formula-banner [style*="white-space"] { white-space:normal !important; }
+            .step-expr-pill, .step-ans-pill { white-space:normal; }
+            .viewport { min-width:0; max-width:100%; min-height:280px; }
+            .viewport-top-bar { position:static; width:100%; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
+            .viewport canvas { max-width:100%; height:auto; }
+            .control-row label { flex-wrap:wrap; gap:6px; }
+            #add-question-modal > div { width:100% !important; padding:12px !important; }
+            #add-question-modal [style*="grid-template-columns"] { grid-template-columns:minmax(0,1fr) !important; }
+            #add-question-modal .btn { min-width:0 !important; max-width:100%; }
             #qr-share-modal { align-items:flex-start !important; padding:10px !important; }
             #qr-share-modal > div { width:100% !important; padding:14px !important; margin:auto; }
             #qr-share-modal h2 { font-size:17px !important; }
