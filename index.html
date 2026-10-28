@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="saospace-build" content="2026-10-29-mobile">
+    <meta name="description" content="SaoSpace 5.0 - Học liệu mở hình học không gian 3D Toán 5 cùng cô Lương Mai Sao.">
     <title>SaoSpace 5.0: Phòng thí nghiệm Hình học không gian 3D cùng Trợ lý AI Gợi mở – Toán 5 (GV Lương Mai Sao)</title>
     <style>
         :root {
@@ -1065,6 +1067,143 @@
             border-radius: 12px;
             max-width: 100%;
         }
+    
+        .team-card.team-selected-active {
+            transform: translateY(-10px) scale(1.08) !important;
+            filter: drop-shadow(0 0 22px #fde047) drop-shadow(0 16px 28px rgba(245, 158, 11, 0.8)) !important;
+            z-index: 10 !important;
+        }
+        .team-card.team-selected-active .team-score-pill {
+            border-color: #ef4444 !important;
+            box-shadow: 0 0 18px rgba(239, 68, 68, 0.7), inset 0 2px 4px rgba(0,0,0,0.1) !important;
+            background: #fff1f2 !important;
+        }
+        .random-team-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 40%, #fbbf24 100%);
+            border: 3.5px solid #d97706;
+            border-radius: 16px;
+            padding: 12px 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.25);
+        }
+        .random-team-status {
+            font-size: 16.5px;
+            font-weight: 700;
+            color: #78350f;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .random-team-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        #qr-code-canvas { max-width:100%; height:auto; }
+        #qr-url-input { min-width:0; }
+        .qr-share-grid > * { min-width:0; }
+        @media (max-width:900px) {
+            .grid-2col { grid-template-columns:minmax(0,1fr) !important; }
+            .grid-2col > * { min-width:0; max-width:100%; }
+        }
+        @media (max-width:900px) {
+            header { padding:12px; }
+            .header-left, .header-title-row, .projector-toolbar { min-width:0; max-width:100%; }
+            .header-title-row h1 { font-size:18px; overflow-wrap:anywhere; }
+            .projector-toolbar select, .tool-pill-btn { min-width:0; max-width:100%; }
+            .tool-pill-btn { white-space:normal; text-align:left; }
+            .nav-tabs { grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; padding:8px; }
+            .tab-btn { min-width:0; }
+            .tab-btn:last-child { grid-column:1 / -1; }
+            .station { padding:10px 8px; }
+            .panel { padding:12px; min-width:0; }
+            .scoreboard, .kpi-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+            .options-grid { grid-template-columns:minmax(0,1fr); }
+            .quiz-question-bar { flex-wrap:wrap; }
+            .formula-banner { padding:10px; font-size:16px; overflow-wrap:anywhere; }
+            .formula-banner div, .formula-banner span { min-width:0; max-width:100%; }
+            .formula-banner [style*="white-space"] { white-space:normal !important; }
+            .step-expr-pill, .step-ans-pill { white-space:normal; }
+            .viewport { min-width:0; max-width:100%; min-height:280px; }
+            .viewport-top-bar { position:static; width:100%; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
+            .viewport canvas { max-width:100%; height:auto; }
+            .control-row label { flex-wrap:wrap; gap:6px; }
+            #add-question-modal > div { width:100% !important; padding:12px !important; }
+            #add-question-modal [style*="grid-template-columns"] { grid-template-columns:minmax(0,1fr) !important; }
+            #add-question-modal .btn { min-width:0 !important; max-width:100%; }
+            #qr-share-modal { align-items:flex-start !important; padding:10px !important; }
+            #qr-share-modal > div { width:100% !important; padding:14px !important; margin:auto; }
+            #qr-share-modal h2 { font-size:17px !important; }
+            .qr-share-grid { grid-template-columns:minmax(0,1fr) !important; }
+        }
+
+        /* Mobile touch targets, bounded fields and lightweight rendering. */
+        button, select, input, a { -webkit-tap-highlight-color:rgba(37,99,235,.15); }
+        button, a { touch-action:manipulation; }
+        #qr-code-canvas { border-radius:0; }
+        .qr-canvas-frame { max-width:100%; }
+        .report-table-scroll { max-width:100%; overflow-x:auto; overscroll-behavior-x:contain; }
+        #qr-share-modal, #add-question-modal, #ceremony-modal { overscroll-behavior:contain; }
+        #qr-share-modal > div, #add-question-modal > div, #ceremony-modal > div { flex-shrink:0; margin:auto; }
+        @media (max-width:1100px) {
+            .scoreboard { grid-template-columns:repeat(2,minmax(0,1fr)); }
+            .team-card { min-width:0; }
+        }
+        @media (max-width:900px) {
+            .app-shell { width:100%; }
+            .station input:not([type="range"]), .station select, #add-question-modal input, #add-question-modal select, #add-question-modal textarea, #qr-url-input { min-width:0; max-width:100%; font-size:16px !important; }
+            .btn, .speak-mini-btn, .mini-step-btn, .chip-btn, .tool-pill-btn { min-height:42px; }
+            input[type="range"] { min-height:32px; margin:3px 0 6px; }
+            .student-message-row, .certificate-input-row { flex-wrap:wrap; }
+            .student-message-row > input, .student-message-row > .btn, .certificate-input-row > input, .certificate-input-row > select { flex:1 1 100% !important; width:100%; min-width:0 !important; }
+            .voice-dialogue-header h4 { flex-wrap:wrap; }
+            .mic-btn { max-width:100%; white-space:normal; text-align:left; }
+            .team-card { min-width:0; padding:12px 8px; filter:none; }
+            .team-header-row { gap:5px; min-width:0; max-width:100%; }
+            .team-title-block { min-width:0; }
+            .team-card h4 { font-size:14px; }
+            .team-mascot-mini { width:34px; height:34px; animation:none; }
+            .team-mascot-mini svg { width:28px; height:28px; }
+            .team-badge-pill { font-size:9px; padding:2px 4px; overflow-wrap:anywhere; }
+            .team-btn-row { width:100%; gap:4px; }
+            .team-act-btn { min-width:0; white-space:normal; padding:8px 3px; font-size:12px; min-height:42px; }
+            .team-card.team-selected-active { transform:none !important; filter:none !important; box-shadow:0 0 0 3px #f59e0b; }
+            .team-card.team-selected-active .team-score-pill { box-shadow:inset 0 0 0 1px #ef4444 !important; }
+            .team-card.celebrating { animation:none; }
+            .random-team-toolbar { padding:12px; gap:12px; }
+            .random-team-status, .random-team-actions { min-width:0; max-width:100%; width:100%; }
+            .random-team-status { align-items:flex-start; font-size:15px; }
+            .random-team-status > span { min-width:0; overflow-wrap:anywhere; }
+            #random-team-display { font-size:15px !important; line-height:1.5; }
+            .random-team-status > span:first-child { flex-shrink:0; animation:none !important; }
+            .random-team-actions > .btn { width:100%; margin:0; white-space:normal; }
+            .manual-team-controls { flex-wrap:wrap; width:100%; gap:6px !important; padding:8px !important; }
+            .manual-team-controls > span { flex-basis:100%; }
+            .manual-team-controls > button { flex:1; min-width:0; min-height:44px; padding:6px 4px !important; }
+            .socratic-input-row { flex-wrap:wrap; }
+            .socratic-input-row > input, .socratic-input-row > button { flex:1 1 100% !important; min-width:0 !important; max-width:100%; width:100%; white-space:normal; }
+            .report-table-scroll .tt27-table { min-width:560px; }
+            .certificate-inner { padding:12px !important; }
+            .certificate-inner > div { flex-wrap:wrap; gap:6px; }
+            .cert-ribbon, .cert-seal, .cert-student-banner { max-width:100%; overflow-wrap:anywhere; }
+            #qr-share-modal, #add-question-modal, #ceremony-modal { align-items:flex-start !important; padding:10px !important; }
+            #qr-share-modal > div, #add-question-modal > div, #ceremony-modal > div { width:100% !important; max-width:100%; padding:14px !important; }
+            #qr-share-modal .btn, #add-question-modal .btn, #ceremony-modal .btn { min-width:0 !important; max-width:100%; }
+            #add-question-modal > div > div:last-child > div { flex-wrap:wrap; max-width:100%; }
+        }
+        @media (max-width:380px) { .scoreboard { grid-template-columns:minmax(0,1fr); } }
+        @media (hover:none) {
+            .tab-btn:hover, .team-card:hover, .team-act-btn:hover, .mini-step-btn:hover, .mic-btn:hover { transform:none; filter:none; }
+        }
+        @media (prefers-reduced-motion:reduce) {
+            *, *::before, *::after { animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+        }
     </style>
 </head>
 <body style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);">
@@ -1150,23 +1289,23 @@
                 <h3>TRẠM 1: ĐIỀU CHỈNH KÍCH THƯỚC & GÓC NHÌN 3D</h3>
                 <div class="control-row">
                     <label>Chiều dài (a): <span class="val-pill"><span id="s1-a-val">6</span> dm</span></label>
-                    <input type="range" id="s1-a" min="2" max="10" value="6" oninput="updateStation1()">
+                    <input type="range" id="s1-a" min="2" max="10" value="6" oninput="scheduleStationUpdate(1)">
                 </div>
                 <div class="control-row">
                     <label>Chiều rộng (b): <span class="val-pill"><span id="s1-b-val">4</span> dm</span></label>
-                    <input type="range" id="s1-b" min="2" max="8" value="4" oninput="updateStation1()">
+                    <input type="range" id="s1-b" min="2" max="8" value="4" oninput="scheduleStationUpdate(1)">
                 </div>
                 <div class="control-row">
                     <label>Chiều cao (c): <span class="val-pill"><span id="s1-c-val">5</span> dm</span></label>
-                    <input type="range" id="s1-c" min="2" max="8" value="5" oninput="updateStation1()">
+                    <input type="range" id="s1-c" min="2" max="8" value="5" oninput="scheduleStationUpdate(1)">
                 </div>
                 <div class="control-row">
                     <label>Xoay ngang 360°: <span class="val-pill"><span id="s1-ry-val">35</span>°</span></label>
-                    <input type="range" id="s1-ry" min="-180" max="180" value="35" oninput="updateStation1()">
+                    <input type="range" id="s1-ry" min="-180" max="180" value="35" oninput="scheduleStationUpdate(1)">
                 </div>
                 <div class="control-row">
                     <label>Góc nhìn từ trên xuống: <span class="val-pill"><span id="s1-rx-val">-22</span>°</span></label>
-                    <input type="range" id="s1-rx" min="-75" max="45" value="-22" oninput="updateStation1()">
+                    <input type="range" id="s1-rx" min="-75" max="45" value="-22" oninput="scheduleStationUpdate(1)">
                 </div>
                 <div class="btn-group">
                     <button class="btn btn-accent" onclick="toggleUnfold()" id="btn-unfold">BUNG TRẢI PHẲNG 6 MẶT</button>
@@ -1224,19 +1363,19 @@
                 </div>
                 <div class="control-row">
                     <label><span id="s2-label-a">Chiều dài bể cá (a):</span> <span class="val-pill"><span id="s2-a-val">8</span> <span class="s2-unit-text">dm</span></span></label>
-                    <input type="range" id="s2-a" min="4" max="12" value="8" oninput="updateStation2()">
+                    <input type="range" id="s2-a" min="4" max="12" value="8" oninput="scheduleStationUpdate(2)">
                 </div>
                 <div class="control-row">
                     <label><span id="s2-label-b">Chiều rộng bể cá (b):</span> <span class="val-pill"><span id="s2-b-val">5</span> <span class="s2-unit-text">dm</span></span></label>
-                    <input type="range" id="s2-b" min="3" max="10" value="5" oninput="updateStation2()">
+                    <input type="range" id="s2-b" min="3" max="10" value="5" oninput="scheduleStationUpdate(2)">
                 </div>
                 <div class="control-row">
                     <label><span id="s2-label-c">Chiều cao bể cá (c):</span> <span class="val-pill"><span id="s2-c-val">6</span> <span class="s2-unit-text">dm</span></span></label>
-                    <input type="range" id="s2-c" min="3" max="8" value="6" oninput="updateStation2()">
+                    <input type="range" id="s2-c" min="3" max="8" value="6" oninput="scheduleStationUpdate(2)">
                 </div>
                 <div class="control-row" id="door-control" style="display:none;">
                     <label>Diện tích Cửa chính & Cửa sổ (trừ đi): <span class="val-pill" style="background:#dc2626;"><span id="s2-door-val">9</span> m²</span></label>
-                    <input type="range" id="s2-door" min="4" max="18" value="9" step="1" oninput="updateStation2()">
+                    <input type="range" id="s2-door" min="4" max="18" value="9" step="1" oninput="scheduleStationUpdate(2)">
                 </div>
                 <button class="speak-mini-btn" style="width:100%; margin-top:4px;" onclick="speakStation2Status()">🔊 AI Đọc thông số mô hình hiện tại</button>
 
@@ -1289,28 +1428,28 @@
                 </div>
                 <div class="control-row">
                     <label><span id="s3-lbl-a">Chiều dài đáy bể (a):</span> <span class="val-pill"><span id="s3-a-val">50 cm</span></span></label>
-                    <input type="range" id="s3-a" min="3" max="8" value="5" oninput="updateStation3()">
+                    <input type="range" id="s3-a" min="3" max="8" value="5" oninput="scheduleStationUpdate(3)">
                 </div>
                 <div class="control-row">
                     <label><span id="s3-lbl-b">Chiều rộng đáy bể (b):</span> <span class="val-pill"><span id="s3-b-val">40 cm</span></span></label>
-                    <input type="range" id="s3-b" min="2" max="6" value="4" oninput="updateStation3()">
+                    <input type="range" id="s3-b" min="2" max="6" value="4" oninput="scheduleStationUpdate(3)">
                 </div>
                 <div class="control-row">
                     <label><span id="s3-lbl-c">Chiều cao bể (c):</span> <span class="val-pill"><span id="s3-c-val">60 cm</span></span></label>
-                    <input type="range" id="s3-c" min="5" max="8" value="6" oninput="updateStation3()">
+                    <input type="range" id="s3-c" min="5" max="8" value="6" oninput="scheduleStationUpdate(3)">
                 </div>
 
                 <div id="s3-cube-controls" style="display:none;">
                     <div class="control-row">
                         <label>Số lớp khối 1 dm³ đã xếp: <span class="val-pill"><span id="s3-layer-val">2</span> lớp</span></label>
-                        <input type="range" id="s3-layer" min="1" max="8" value="2" oninput="updateStation3()">
+                        <input type="range" id="s3-layer" min="1" max="8" value="2" oninput="scheduleStationUpdate(3)">
                     </div>
                 </div>
 
                 <div id="s3-water-controls">
                     <div class="control-row">
                         <label>Mực nước ban đầu (h₁): <span class="val-pill" style="background:#0284c7;"><span id="s3-water-val">25</span> cm</span></label>
-                        <input type="range" id="s3-water" min="15" max="38" value="25" step="1" oninput="updateStation3()">
+                        <input type="range" id="s3-water" min="15" max="38" value="25" step="1" oninput="scheduleStationUpdate(3)">
                     </div>
                     <div class="control-row">
                         <label>Chọn hòn đá thả chìm hoàn toàn:</label>
@@ -1366,6 +1505,32 @@
 
     <!-- TRẠM 4: LIVE 2-WAY VOICE AI DIALOGUE + SOCRATIC REVERSE QUESTIONING -->
     <div class="station" id="station-3">
+
+                <!-- BỘ ĐIỀU KHIỂN AI RANDOM CHỌN TỔ (THIẾT KẾ NỔI BẬT ĐẦU TRẠM 4) -->
+        <div class="random-team-toolbar">
+            <div class="random-team-status">
+                <span style="font-size: 26px; animation: floatMascot 1.5s infinite alternate;">🎲</span>
+                <span id="random-team-display" style="font-size: 16.5px;">Sẵn sàng: Bấm nút cam bên cạnh để <strong>AI quay ngẫu nhiên chọn Tổ</strong> trả lời / phản biện!</span>
+            </div>
+            <div class="random-team-actions">
+                <button class="btn btn-accent" id="btn-ai-random-team" style="background: linear-gradient(135deg, #dc2626 0%, #ea580c 50%, #f59e0b 100%); color: #ffffff; border: 2.5px solid #fde047; padding: 10px 20px; font-size: 16px; font-weight: 700; border-radius: 12px; box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4); cursor: pointer;" onclick="startAIRandomTeam()">
+                    🎲 AI RANDOM CHỌN TỔ
+                </button>
+                <button class="tool-pill-btn" id="btn-toggle-random-speak" style="background: #10b981; color: #ffffff; border: 2px solid #a7f3d0; padding: 8px 14px; font-size: 13.5px;" onclick="toggleAIRandomSpeak()" title="Bật hoặc Tắt giọng đọc AI khi chọn Tổ">
+                    🔊 AI Đọc: BẬT
+                </button>
+                <div class="manual-team-controls" style="display: inline-flex; align-items: center; gap: 5px; background: #ffffff; padding: 4px 10px; border-radius: 10px; border: 2px solid #f59e0b; font-size: 13px; font-weight: 700; color: #78350f;" title="Giáo viên can thiệp chọn trực tiếp Tổ">
+                    <span>👑 GV Can thiệp:</span>
+                    <button class="mini-step-btn" style="background:#ffe4e6; color:#be123c; border-color:#fda4af; padding:4px 9px; font-size:12.5px;" onclick="manualSelectTeam(0)">Tổ 1</button>
+                    <button class="mini-step-btn" style="background:#fef3c7; color:#b45309; border-color:#fde047; padding:4px 9px; font-size:12.5px;" onclick="manualSelectTeam(1)">Tổ 2</button>
+                    <button class="mini-step-btn" style="background:#d1fae5; color:#047857; border-color:#6ee7b7; padding:4px 9px; font-size:12.5px;" onclick="manualSelectTeam(2)">Tổ 3</button>
+                    <button class="mini-step-btn" style="background:#ede9fe; color:#6d28d9; border-color:#c4b5fd; padding:4px 9px; font-size:12.5px;" onclick="manualSelectTeam(3)">Tổ 4</button>
+                </div>
+                <button class="mini-step-btn" style="background: #f1f5f9; color: #475569; border-color: #cbd5e1; padding: 8px 12px; font-size: 13px;" onclick="resetTeamSelection()" title="Bỏ viền sáng chọn Tổ">
+                    ✖️ Đặt lại
+                </button>
+            </div>
+        </div>
         <div class="scoreboard">
             <!-- TỔ 1: HÌNH ĐÁM MÂY TỔ ONG CÓ ĐÔI CÁNH TRÒN (ĐỎ RUBY - CAM SAN HÔ RỰC RỠ) -->
             <div class="team-card" id="team-card-0">
@@ -1554,7 +1719,7 @@
                     <button class="speak-mini-btn" style="background:#fee2e2; color:#b91c1c; border-color:#f87171;" onclick="stopSpeaking()" title="Dừng giọng đọc ngay">⏹️ Dừng đọc</button>
                 </div>
             </div>
-            <div style="display:flex; gap:8px; margin-bottom:10px;">
+            <div class="student-message-row" style="display:flex; gap:8px; margin-bottom:10px;">
                 <input type="text" id="student-speech-input" placeholder="Gõ bất kỳ câu hỏi thường ngày, cảm xúc hoặc cách giải toán của học sinh vào đây rồi bấm Enter..." style="flex:1; padding:10px 14px; font-size:16px; border-radius:10px; border:2px solid #38bdf8; font-weight:700; background:#ffffff;" onkeydown="if(event.key==='Enter') processStudentUtterance(this.value)">
                 <button class="btn btn-primary" style="flex:0; min-width:165px; background:linear-gradient(135deg, #0284c7, #2563eb);" onclick="processStudentUtterance(document.getElementById('student-speech-input').value)">💬 Gửi AI Đối đáp</button>
             </div>
@@ -1635,7 +1800,7 @@
                         <div style="font-size:14px; font-weight:700; color:#4c1d95; margin-bottom:8px;">
                             🎙️ Đại diện Tổ hãy bấm Micro nói trực tiếp (hoặc gõ nhanh phép tính / giải thích) vì sao Tổ em chọn phương án này:
                         </div>
-                        <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <div class="socratic-input-row" style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
                             <button class="mic-btn" id="btn-socratic-mic" style="padding:9px 16px; font-size:14.5px;" onclick="startSocraticDirectVoice()">
                                 🎙️ BẤM MICRO NÓI LỜI GIẢI THÍCH
                             </button>
@@ -1643,8 +1808,8 @@
                             <button class="btn btn-purple" style="flex:0; min-width:155px; padding:9px 14px;" onclick="submitSocraticDirectExplanation()">
                                 ✅ AI Chấm Giải Thích
                             </button>
-                            <button class="mini-step-btn" style="background:#dcfce7; color:#166534; border-color:#22c55e; padding:9px 12px;" onclick="teacherQuickConfirmReason()" title="Dành cho Giáo viên: Khi học sinh đã giải thích miệng trực tiếp trước lớp, bấm để công nhận và mở đáp án ngay!">
-                                ⚡ GV Xác nhận HS đã giải thích đúng
+                            <button class="mini-step-btn" id="btn-gv-confirm-pts" style="background: linear-gradient(135deg, #15803d, #16a34a); color:#ffffff; border-color:#86efac; padding:9px 15px; font-weight:700; box-shadow:0 3px 8px rgba(22,163,74,0.35);" onclick="teacherQuickConfirmReason()" title="Dành cho Giáo viên: Phê duyệt lập luận của học sinh, công nhận đáp án đúng và tự động cộng ngay 15 điểm cho Tổ đang chọn!">
+                                👑 GV Phê Duyệt & Thưởng 15đ Phản Biện
                             </button>
                         </div>
                     </div>
@@ -1705,7 +1870,7 @@
                     <button class="btn btn-primary" onclick="generateTT27Comments()">✍️ AI Dự Thảo Nhận Xét Theo Minh Chứng – GV Phê Duyệt (Chuẩn TT27 & TT89/2026)</button>
                     <button class="btn btn-success" onclick="speakTT27Summary()">🔊 AI Đọc Báo Cáo Số Liệu Động</button>
                 </div>
-                <table class="tt27-table">
+                <div class="report-table-scroll" tabindex="0" aria-label="Bảng nhận xét, có thể cuộn ngang trên điện thoại"><table class="tt27-table">
                     <thead>
                         <tr>
                             <th>Phân Loại Thông Tư 27</th>
@@ -1730,7 +1895,7 @@
                             <td>Nhờ gợi ý bắc giàn từng bước và giọng đọc của Trợ lý AI trên màn chiếu, 100% học sinh vượt qua rào cản tưởng tượng không gian.</td>
                         </tr>
                     </tbody>
-                </table>
+                </table></div>
             </div>
 
             <div class="panel">
@@ -1748,7 +1913,7 @@
                 </div>
                 <div class="control-row" style="margin-bottom:8px;">
                     <label>2. Hoặc gõ trực tiếp tên Học sinh bất kỳ tại lớp + Chọn Danh hiệu:</label>
-                    <div style="display:flex; gap:6px;">
+                    <div class="certificate-input-row" style="display:flex; gap:6px;">
                         <input type="text" id="custom-student-name" placeholder="Gõ tên học sinh lớp 5A4..." style="flex:1.2; padding:7px 10px; border-radius:8px; border:2px solid #3b82f6; font-size:14px; font-weight:700;" oninput="updateCuteCardCustom(this.value)">
                         <select id="award-title-select" onchange="updateAwardTitle()" style="flex:1; padding:7px 8px; border-radius:8px; border:2px solid #ec4899; font-size:13.5px; font-weight:700; background:#fdf2f8; color:#9d174d;">
                             <option value="🌟 CHIẾN BINH SĂN SAO ĐỎ XUẤT SẮC 🌟">🏆 Chiến Binh Sao Đỏ</option>
@@ -1882,19 +2047,20 @@
             <button class="btn btn-danger" style="flex:0; min-width:115px; padding:8px 14px;" onclick="closeQRShareModal()">✖️ Đóng lại</button>
         </div>
 
-        <div style="display:grid; grid-template-columns: 330px 1fr; gap:20px; align-items:start;">
+        <div class="qr-share-grid" style="display:grid; grid-template-columns: 330px 1fr; gap:20px; align-items:start;">
             <!-- CỘT TRÁI: MÃ QR CHUẨN ISO MỞ THẲNG LINK WEB CHÍNH THỨC -->
             <div style="background:#ffffff; border:3px solid #f59e0b; border-radius:18px; padding:16px; text-align:center; box-shadow:0 8px 20px rgba(245,158,11,0.18);">
                 <div style="background:linear-gradient(90deg, #dc2626, #ea580c); color:#fde047; font-weight:700; font-size:13.5px; padding:5px 14px; border-radius:999px; display:inline-block; margin-bottom:10px;">
                     📷 QUÉT MÃ QR MỞ HỌC LIỆU 3D
                 </div>
-                <div style="background:#ffffff; padding:8px; border:2px solid #cbd5e1; border-radius:14px; display:inline-block;">
+                <div class="qr-canvas-frame" style="background:#ffffff; padding:8px; border:2px solid #cbd5e1; border-radius:14px; display:inline-block;">
                     <canvas id="qr-code-canvas" width="240" height="240"></canvas>
                 </div>
                 <div style="margin-top:10px; text-align:left;">
-                    <label style="font-size:12.5px; font-weight:700; color:#1e3a8a;">🔗 Đường link Học liệu Mở trực tuyến:</label>
-                    <input type="text" id="qr-url-input" value="https://mrvuvan.github.io/saospace-toan5/" oninput="renderDynamicQRCode()" style="width:100%; padding:8px 10px; margin-top:4px; border:2px solid #0284c7; border-radius:8px; font-size:13.5px; font-weight:700; color:#0f172a;">
+                    <label for="qr-url-input" style="font-size:12.5px; font-weight:700; color:#1e3a8a;">🔗 Đường link Học liệu Mở trực tuyến:</label>
+                    <input type="url" inputmode="url" autocapitalize="off" spellcheck="false" aria-describedby="qr-share-status" id="qr-url-input" value="https://mrvuvan.github.io/saospace-toan5/" oninput="renderDynamicQRCode()" style="width:100%; padding:8px 10px; margin-top:4px; border:2px solid #0284c7; border-radius:8px; font-size:13.5px; font-weight:700; color:#0f172a;">
                 </div>
+                <p id="qr-share-status" role="status" aria-live="polite" style="font-size:13px; line-height:1.5; color:#0369a1; overflow-wrap:anywhere;"></p>
                 <div style="display:flex; flex-direction:column; gap:7px; margin-top:10px;">
                     <button class="btn btn-primary" style="width:100%; font-size:13.5px; padding:8px;" onclick="copyOfficialWebLink()">
                         📋 Sao chép Link Học Liệu Mở
@@ -2068,6 +2234,69 @@
 </div>
 
 <script>
+// The hosted page supplies its own URL; the published address also works in offline exports.
+const SAOSPACE_PUBLIC_URL = 'https://mrvuvan.github.io/saospace-toan5/';
+
+function getDefaultShareURL() {
+    const current = new URL(window.location.href);
+    if (['https:', 'http:'].includes(current.protocol) &&
+        !['localhost', '127.0.0.1', '[::1]', '0.0.0.0'].includes(current.hostname)) {
+        current.hash = '';
+        current.search = '';
+        current.pathname = current.pathname.replace(/\/index\.html$/, '/');
+        return current.href;
+    }
+    return SAOSPACE_PUBLIC_URL;
+}
+
+function getQRShareURL(showError = false) {
+    const inp = document.getElementById('qr-url-input');
+    const value = (inp && inp.value.trim()) || getDefaultShareURL();
+    const status = document.getElementById('qr-share-status');
+    try {
+        const parsed = new URL(value);
+        if (!['https:', 'http:'].includes(parsed.protocol) || parsed.username || parsed.password ||
+            ['localhost', '127.0.0.1', '[::1]', '0.0.0.0'].includes(parsed.hostname) ||
+            /(^|\.)github\.com$/i.test(parsed.hostname)) {
+            throw new Error('Hãy dùng địa chỉ website học tập công khai (https://…github.io/…), để học sinh có thể mở trực tiếp.');
+        }
+        if (new TextEncoder().encode(parsed.href).length > 134) {
+            throw new Error('Đường dẫn quá dài để tạo QR. Hãy dùng địa chỉ gốc của trang học tập (tối đa 134 byte).');
+        }
+        if (status) status.textContent = 'Mã QR dẫn đến: ' + parsed.href;
+        return parsed.href;
+    } catch (error) {
+        const message = error instanceof TypeError ? 'Hãy nhập địa chỉ website đầy đủ, bắt đầu bằng https://.' : error.message;
+        if (status) status.textContent = message;
+        if (showError) alert(message);
+        return '';
+    }
+}
+
+function initializeQRShareURL() {
+    const inp = document.getElementById('qr-url-input');
+    if (inp) inp.value = getDefaultShareURL();
+}
+
+
+// Coalesce slider updates to one draw per animation frame, retaining the final value.
+const pendingStationUpdates = new Set();
+let stationUpdateFrame = null;
+function scheduleStationUpdate(station) {
+    pendingStationUpdates.add(station);
+    if (stationUpdateFrame !== null) return;
+    stationUpdateFrame = requestAnimationFrame(() => {
+        stationUpdateFrame = null;
+        const stations = [...pendingStationUpdates];
+        pendingStationUpdates.clear();
+        for (const number of stations) {
+            if (number === 1) updateStation1();
+            else if (number === 2) updateStation2();
+            else if (number === 3) updateStation3();
+        }
+    });
+}
+
 // ================= PROJECTOR FULLSCREEN & ZOOM CONTROLS =================
 let currentZoom = 1.0;
 
@@ -3941,6 +4170,131 @@ function updateStation3() {
     }
 }
 
+
+// ================= AI RANDOM CHỌN TỔ & GIÁO VIÊN TOÀN QUYỀN CAN THIỆP =================
+let lastSelectedTeam = -1;
+let isRandomRolling = false;
+let aiRandomSpeakEnabled = true;
+
+const TEAM_NAMES = [
+    "Tổ 1 (Đoàn Kết - Ong Chăm Chỉ)",
+    "Tổ 2 (Sáng Tạo - Cú Thông Thái)",
+    "Tổ 3 (Tự Tin - Cá Heo Xanh)",
+    "Tổ 4 (Vượt Khó - Tên Lửa Vũ Trụ)"
+];
+
+function toggleAIRandomSpeak() {
+    aiRandomSpeakEnabled = !aiRandomSpeakEnabled;
+    const btn = document.getElementById('btn-toggle-random-speak');
+    if (btn) {
+        if (aiRandomSpeakEnabled) {
+            btn.style.background = '#10b981';
+            btn.innerText = '🔊 AI Đọc: BẬT';
+        } else {
+            btn.style.background = '#94a3b8';
+            btn.innerText = '🔇 AI Đọc: TẮT';
+            stopSpeaking();
+        }
+    }
+    playTone('question');
+}
+
+function clearAllTeamHighlights() {
+    for (let i = 0; i < 4; i++) {
+        const c = document.getElementById('team-card-' + i);
+        if (c) c.classList.remove('team-selected-active');
+    }
+}
+
+function resetTeamSelection() {
+    clearAllTeamHighlights();
+    const disp = document.getElementById('random-team-display');
+    if (disp) disp.innerText = 'Sẵn sàng: Bấm để AI quay ngẫu nhiên chọn Tổ trả lời / phản biện!';
+    playTone('question');
+}
+
+function highlightChosenTeam(idx, isManual = false) {
+    clearAllTeamHighlights();
+    const card = document.getElementById('team-card-' + idx);
+    if (card) {
+        card.classList.add('team-selected-active');
+    }
+    const disp = document.getElementById('random-team-display');
+    const teamTitle = TEAM_NAMES[idx];
+    if (disp) {
+        disp.innerHTML = `${isManual ? '👑 <strong>GV Can thiệp chỉ định:</strong>' : '🎯 <strong>AI Lựa chọn:</strong>'} <span style="color:#b91c1c; font-size:16.5px;">${teamTitle}</span>! (Điểm số giữ nguyên)`;
+    }
+    lastSelectedTeam = idx;
+
+    if (aiRandomSpeakEnabled) {
+        const speechMsg = isManual 
+            ? `Cô giáo chỉ định ${teamTitle} giành quyền trả lời hoặc phản biện!` 
+            : `Xin chúc mừng ${teamTitle} đã được hệ thống lựa chọn! Mời đại diện Tổ trả lời!`;
+        speakVietnamese(speechMsg, true);
+    }
+}
+
+function manualSelectTeam(idx) {
+    if (isRandomRolling) return;
+    stopSpeaking();
+    playTone('success');
+    highlightChosenTeam(idx, true);
+}
+
+function startAIRandomTeam() {
+    if (isRandomRolling) return;
+    isRandomRolling = true;
+    stopSpeaking();
+    playTone('question');
+
+    const btn = document.getElementById('btn-ai-random-team');
+    if (btn) {
+        btn.disabled = true;
+        btn.style.opacity = '0.75';
+    }
+
+    const disp = document.getElementById('random-team-display');
+    if (disp) disp.innerText = '🎲 AI đang quay chọn ngẫu nhiên giữa 4 Tổ...';
+
+    // Đảm bảo không trùng với Tổ vừa được chọn gần nhất (chống trùng lặp 2 lần liên tiếp)
+    let candidates = [0, 1, 2, 3];
+    if (lastSelectedTeam !== -1) {
+        candidates = candidates.filter(t => t !== lastSelectedTeam);
+    }
+    const chosenTeam = candidates[Math.floor(Math.random() * candidates.length)];
+
+    let currentStep = 0;
+    const compactRoll = window.matchMedia('(max-width:900px)').matches;
+    const reducedRoll = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    const totalSteps = reducedRoll ? 1 : compactRoll ? 10 + Math.floor(Math.random() * 3) : 16 + Math.floor(Math.random() * 6);
+    let delay = 65;
+
+    function rollStep() {
+        clearAllTeamHighlights();
+        const activeIdx = currentStep % 4;
+        const c = document.getElementById('team-card-' + activeIdx);
+        if (c) c.classList.add('team-selected-active');
+        playTone('question');
+
+        currentStep++;
+        if (currentStep < totalSteps) {
+            delay += 12; // Chậm dần đều tạo hồi hộp
+            setTimeout(rollStep, delay);
+        } else {
+            // Dừng ở đúng Tổ được chọn
+            isRandomRolling = false;
+            if (btn) {
+                btn.disabled = false;
+                btn.style.opacity = '1';
+            }
+            playTone('success');
+            highlightChosenTeam(chosenTeam, false);
+        }
+    }
+
+    rollStep();
+}
+
 let scores = [0, 0, 0, 0];
 function addScore(team, pts) {
     scores[team] += pts;
@@ -4199,9 +4553,14 @@ function generateQuestion(level, speakAloud = false) {
     renderCurrentQuestionBox(speakAloud);
 }
 
+let hasAwardedCorrect10 = false;
+let hasAwardedSocratic15 = false;
+
 function renderCurrentQuestionBox(speakAloud = false) {
     if (!currentQ) return;
     selectedOptionIdx = null;
+    hasAwardedCorrect10 = false;
+    hasAwardedSocratic15 = false;
 
     const qBox = document.getElementById('quiz-box-container');
     const cleanQ = currentQ.q.replace(/^\[[^\]]+\]\s*/, '');
@@ -4273,14 +4632,11 @@ function triggerSocraticReverseQuestion(idx, btn) {
     document.querySelectorAll('.opt-btn').forEach(b => {
         b.classList.remove('selected-pending', 'correct', 'wrong');
     });
-    btn.classList.add('selected-pending');
 
     const socPanel = document.getElementById('socratic-panel');
     socPanel.style.display = 'block';
-    document.getElementById('q-explain').style.display = 'none';
-
-    const promptMsg = `Tổ của em vừa chọn phương án ${currentQ.opts[idx]}. ${currentQ.reverseQ}`;
-    document.getElementById('socratic-prompt').innerText = promptMsg;
+    const expBox = document.getElementById('q-explain');
+    expBox.style.display = 'none';
 
     const socInput = document.getElementById('socratic-direct-input');
     if (socInput) {
@@ -4288,8 +4644,29 @@ function triggerSocraticReverseQuestion(idx, btn) {
         socInput.focus();
     }
 
-    playTone('question');
-    speakVietnamese(promptMsg, false);
+    // NẤC 1: Nếu học sinh chọn ĐÚNG phương án trắc nghiệm -> Đổi màu xanh và TỰ ĐỘNG CỘNG NGAY +10đ ĐÚNG cho Tổ đang chọn!
+    if (idx === currentQ.ans) {
+        btn.classList.add('correct');
+        const targetTeam = (lastSelectedTeam >= 0 && lastSelectedTeam <= 3) ? lastSelectedTeam : 0;
+        const targetTeamName = TEAM_NAMES[targetTeam];
+
+        let bonusNotice = "";
+        if (!hasAwardedCorrect10) {
+            hasAwardedCorrect10 = true;
+            addScore(targetTeam, 10);
+            bonusNotice = `🎉 Chính xác! Hệ thống đã tự động cộng +10 điểm Trả lời đúng cho ${targetTeamName}! `;
+        }
+
+        const promptMsg = `${bonusNotice}Bây giờ để săn tiếp +15 điểm Phản biện: ${currentQ.reverseQ}`;
+        document.getElementById('socratic-prompt').innerText = promptMsg;
+        speakVietnamese(promptMsg, false);
+    } else {
+        btn.classList.add('selected-pending');
+        const promptMsg = `Tổ của em vừa chọn phương án ${currentQ.opts[idx]}. ${currentQ.reverseQ}`;
+        document.getElementById('socratic-prompt').innerText = promptMsg;
+        playTone('question');
+        speakVietnamese(promptMsg, false);
+    }
 }
 
 // Thu âm trực tiếp câu giải thích của học sinh ngay trong khung Hỏi ngược Socratic
@@ -4380,7 +4757,13 @@ function speakQuizExplain() {
     if (lastQuizExplainSpeech) speakVietnamese(lastQuizExplainSpeech, true);
 }
 
-// Hàm AI chấm trực tiếp lời giải thích của học sinh: Đúng trọng tâm, ngắn gọn, sắc bén, không lan man!
+const PRAISE_SOCRATIC_LIST = [
+    "Tư duy Toán học đỉnh cao! Em giải thích quá thông minh, rõ ràng và nắm trọn bản chất hình học 3D! Cả lớp cùng nổ một tràng pháo tay khen ngợi bạn nào! Mời Cô giáo bấm nút Phê duyệt để thưởng nóng 15 điểm Phản biện cho Tổ em nhé!",
+    "Quá xuất sắc chiến binh Săn Sao của lớp 5A4! Em không những chọn đúng đáp án mà lập luận còn vô cùng sắc bén, thuyết phục hoàn toàn Cô AI! Mời Cô giáo Lương Mai Sao bấm Phê duyệt để trao 15 điểm Phản biện cho Tổ em!",
+    "Tuyệt vời ông mặt trời! Lời giải thích của em chuẩn xác từng phép tính, chứng tỏ Tổ em hiểu bài cực kỳ sâu sắc chứ không hề đoán mò! Xin mời Cô giáo bấm nút Phê duyệt để cộng 15 điểm thưởng cho sự bứt phá này nhé!"
+];
+
+// Hàm AI chấm trực tiếp lời giải thích của học sinh: Bắt từ khóa thông minh + Khen ngợi nồng nhiệt + Chờ GV phê duyệt cộng điểm phản biện!
 function submitSocraticDirectExplanation() {
     if (selectedOptionIdx === null || !currentQ) return;
     const socInput = document.getElementById('socratic-direct-input');
@@ -4391,7 +4774,7 @@ function submitSocraticDirectExplanation() {
     expBox.style.display = 'block';
     const optButtons = document.querySelectorAll('.opt-btn');
 
-    // TRƯỜNG HỢP 1: Học sinh đang chọn phương án A/B/C/D bị SAI -> AI bắt mạch lỗi sai đúng trọng tâm ngay lập tức!
+    // TRƯỜNG HỢP 1: Học sinh đang chọn phương án A/B/C/D bị SAI -> AI bắt mạch lỗi sai đúng trọng tâm
     if (selectedOptionIdx !== currentQ.ans) {
         optButtons[selectedOptionIdx].classList.remove('selected-pending');
         optButtons[selectedOptionIdx].classList.add('wrong');
@@ -4414,77 +4797,99 @@ function submitSocraticDirectExplanation() {
         return;
     }
 
-    // TRƯỜNG HỢP 2: Học sinh chọn ĐÚNG phương án A/B/C/D -> Kiểm tra lời giải thích có nêu đúng phép tính / bản chất không
+    // TRƯỜNG HỢP 2: Học sinh chọn ĐÚNG phương án A/B/C/D -> AI bắt từ khóa phản biện, khen ngợi nồng nhiệt và MỜI CÔ GIÁO PHÊ DUYỆT
     const matchedConcept = (currentQ.keyConcepts || []).some(kw => normExp.includes(kw.toLowerCase()));
     const hasMathReasoning = /(nhân|cộng|trừ|chia|\+|\-|\*|x|×|:|chu vi|diện tích|mặt|đáy|lớp|dâng|cạnh|gấp)/.test(normExp) && normExp.length >= 4;
 
     if (matchedConcept || hasMathReasoning) {
         optButtons[selectedOptionIdx].classList.remove('selected-pending');
         optButtons[selectedOptionIdx].classList.add('correct');
-        expBox.style.background = '#dcfce7';
-        expBox.style.borderLeftColor = '#16a34a';
-        const msg = `Chính xác tuyệt đối cả đáp án lẫn bản chất toán học! ${currentQ.exp} Thưởng nóng cho Tổ của em 15 điểm Phản biện!`;
-        lastQuizExplainSpeech = msg;
+        expBox.style.background = '#eff6ff';
+        expBox.style.borderLeftColor = '#2563eb';
+        const praiseMsg = PRAISE_SOCRATIC_LIST[Math.floor(Math.random() * PRAISE_SOCRATIC_LIST.length)];
+        lastQuizExplainSpeech = praiseMsg;
         expBox.innerHTML = `
             <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-                <span>🌟 <strong>HOÀN HẢO (ĐÚNG ĐÁP ÁN + GIẢI THÍCH ĐÚNG TRỌNG TÂM)!</strong></span>
+                <span style="color:#1d4ed8; font-size:17px;">🌟 <strong>TRỢ LÝ AI KHEN NGỢI: GIẢI THÍCH ĐÚNG TRỌNG TÂM BẢN CHẤT!</strong></span>
                 <div>
-                    <button class="speak-mini-btn" onclick="speakQuizExplain()">🔊 AI Đọc nhận xét</button>
+                    <button class="speak-mini-btn" onclick="speakQuizExplain()">🔊 AI Đọc lời khen</button>
                     <button class="speak-mini-btn" style="background:#fee2e2; color:#b91c1c; border-color:#f87171;" onclick="stopSpeaking()">⏹️ Dừng</button>
                 </div>
             </div>
-            <div style="margin-top:6px;">🗣️ <strong>Lời giải thích của HS:</strong> <em>"${rawExplanation}"</em></div>
-            <div style="margin-top:4px;">✅ <strong>Chốt kiến thức:</strong> ${currentQ.exp} 👉 <strong>Thưởng nóng +15 điểm Phản biện!</strong></div>
+            <div style="margin-top:6px; font-size:15.5px; color:#1e3a8a; line-height:1.5;">
+                🗣️ <strong>Lời giải thích của HS:</strong> <em>"${rawExplanation}"</em><br>
+                💖 <strong>AI Nhận xét:</strong> ${praiseMsg}<br>
+                👉 <strong style="color:#15803d;">Mời Cô giáo bấm nút <u>"👑 GV Phê Duyệt & Thưởng 15đ Phản Biện"</u> để chính thức cộng điểm!</strong>
+            </div>
         `;
         playTone('success');
-        speakVietnamese(msg, false);
+        speakVietnamese(praiseMsg, false);
     } else {
-        // Học sinh chọn đúng đáp án nhưng chưa nói/gõ phép tính rõ ràng (chống đoán mò)
         expBox.style.background = '#fef9c3';
         expBox.style.borderLeftColor = '#ca8a04';
-        const msg = `Em chọn đúng đáp án ${currentQ.opts[selectedOptionIdx]} rồi, nhưng cần nêu rõ phép tính hoặc lý do để chứng minh không đoán mò nhé!`;
+        const msg = `Em đã chọn đúng đáp án và mang về 10 điểm cho Tổ rồi! Để giành thêm 15 điểm Phản biện, em hãy nêu rõ phép tính (lấy số nào cộng, trừ hay nhân với số nào) hoặc giải thích miệng để Cô giáo phê duyệt nhé!`;
         lastQuizExplainSpeech = msg;
         expBox.innerHTML = `
             <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-                <span>🤔 <strong>CHỐNG ĐOÁN MÒ: EM HÃY NÊU RÕ PHÉP TÍNH NHÉ!</strong></span>
+                <span>🤔 <strong>CHỐNG ĐOÁN MÒ: EM HÃY NÊU RÕ PHÉP TÍNH ĐỂ SĂN THÊM +15Đ NHÉ!</strong></span>
                 <div>
-                    <button class="speak-mini-btn" onclick="speakQuizExplain()">🔊 AI Đọc nhắc nhở</button>
+                    <button class="speak-mini-btn" onclick="speakQuizExplain()">🔊 AI Đọc khích lệ</button>
                     <button class="speak-mini-btn" style="background:#fee2e2; color:#b91c1c; border-color:#f87171;" onclick="stopSpeaking()">⏹️ Dừng</button>
                 </div>
             </div>
-            <div style="margin-top:6px;">Phương án <strong>${currentQ.opts[selectedOptionIdx]}</strong> là đúng rồi! Nhưng em hãy bấm Micro nói (hoặc gõ) rõ phép tính (em lấy số nào cộng, trừ, nhân với số nào) hoặc cô giáo bấm nút <strong>"⚡ GV Xác nhận HS đã giải thích đúng"</strong> nếu em đã trả lời miệng trước lớp nhé!</div>
+            <div style="margin-top:6px; font-size:15px; color:#854d0e;">
+                ${msg}
+            </div>
         `;
         playTone('question');
         speakVietnamese(msg, false);
     }
 }
 
-// Nút dành cho Giáo viên xác nhận nhanh khi học sinh đã đứng tại chỗ giải thích miệng đúng trước lớp
 function teacherQuickConfirmReason() {
-    if (selectedOptionIdx === null || !currentQ) return;
+    if (selectedOptionIdx === null || !currentQ) {
+        alert("Cô vui lòng bấm chọn một phương án A/B/C/D trên màn hình trước khi phê duyệt nhé!");
+        return;
+    }
+
     const expBox = document.getElementById('q-explain');
-    expBox.style.display = 'block';
     const optButtons = document.querySelectorAll('.opt-btn');
 
     if (selectedOptionIdx === currentQ.ans) {
         optButtons[selectedOptionIdx].classList.remove('selected-pending');
         optButtons[selectedOptionIdx].classList.add('correct');
+
+        const targetTeam = (lastSelectedTeam >= 0 && lastSelectedTeam <= 3) ? lastSelectedTeam : 0;
+        const targetTeamName = TEAM_NAMES[targetTeam];
+
+        // Nếu vì lý do nào đó chưa cộng 10đ đúng thì đảm bảo cộng đủ, sau đó cộng 15đ phản biện (chống cộng trùng nhiều lần trên cùng 1 câu)
+        if (!hasAwardedCorrect10) {
+            hasAwardedCorrect10 = true;
+            addScore(targetTeam, 10);
+        }
+        if (!hasAwardedSocratic15) {
+            hasAwardedSocratic15 = true;
+            addScore(targetTeam, 15);
+        }
+
+        // Hiển thị thanh thông báo ngắn gọn, tinh tế, KHÔNG BUNG BÀI GIẢI THÍCH DÀI DÒNG
+        expBox.style.display = 'block';
         expBox.style.background = '#dcfce7';
         expBox.style.borderLeftColor = '#16a34a';
-        const msg = `Tuyệt vời! Cô giáo và Trợ lý AI xác nhận Tổ của em vừa chọn đúng đáp án, vừa giải thích miệng chính xác bản chất! ${currentQ.exp} Thưởng nóng 15 điểm Phản biện!`;
-        lastQuizExplainSpeech = msg;
         expBox.innerHTML = `
             <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-                <span>🌟 <strong>HOÀN HẢO (ĐÚNG ĐÁP ÁN + ĐÚNG BẢN CHẤT TƯ DUY)!</strong></span>
-                <div>
-                    <button class="speak-mini-btn" onclick="speakQuizExplain()">🔊 AI Đọc nhận xét</button>
-                    <button class="speak-mini-btn" style="background:#fee2e2; color:#b91c1c; border-color:#f87171;" onclick="stopSpeaking()">⏹️ Dừng</button>
-                </div>
+                <span style="font-size:16.5px; color:#166534; font-weight:700;">
+                    🎉 <strong>CÔ GIÁO ĐÃ PHÊ DUYỆT:</strong> Thưởng nóng <strong>+15 điểm Phản biện</strong> cho <u>${targetTeamName}</u>! (Tổng câu này: +25đ)
+                </span>
+                <span style="background:#16a34a; color:#ffffff; font-size:13.5px; font-weight:700; padding:4px 12px; border-radius:999px;">
+                    ✨ Đã cộng điểm Phản biện!
+                </span>
             </div>
-            <div style="margin-top:6px;">✅ <strong>Chốt kiến thức:</strong> ${currentQ.exp} 👉 <strong>Thưởng nóng cho Tổ của em +15 điểm Phản biện!</strong></div>
         `;
-        playTone('success');
-        speakVietnamese(msg, false);
+
+        if (aiRandomSpeakEnabled) {
+            speakVietnamese(`Tuyệt vời! Cô giáo đã phê duyệt và thưởng thêm mười lăm điểm phản biện cho ${targetTeamName}!`, true);
+        }
     } else {
         submitSocraticDirectExplanation();
     }
@@ -4580,6 +4985,7 @@ function speakGrandCeremonyHonor() {
 
 // ================= REAL ISO/IEC 18004 QR CODE GENERATOR (100% SCANNABLE BY ZALO & CAMERA IN 0.1s) =================
 function generateQRMatrix(text) {
+    if (new TextEncoder().encode(text).length > 134) throw new RangeError('QR URL exceeds 134 bytes.');
     const data = Array.from(new TextEncoder().encode(text));
     // ISO/IEC 18004 Table 9 (ECC Level L) from Version 1 to Version 6 (up to 134 bytes of text/URL)
     const V_INFO = [
@@ -4750,7 +5156,7 @@ function generateQRMatrix(text) {
 function drawQRCodeOnCanvas(canvas, text, sizePx) {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const content = (text && text.trim()) ? text.trim() : 'https://mrvuvan.github.io/saospace-toan5/';
+    const content = (text && text.trim()) ? text.trim() : getDefaultShareURL();
     const mat = generateQRMatrix(content);
     const N = mat.length;
     const margin = 4; // Chuẩn Quiet Zone = 4 modules giúp mọi Camera nhận diện nhanh gấp 3 lần!
@@ -4780,13 +5186,13 @@ function setQRMode(mode) {
     const bCard = document.getElementById('btn-qrmode-card');
     const bLink = document.getElementById('btn-qrmode-link');
     if (mode === 'card') {
-        if (inp) inp.value = 'https://mrvuvan.github.io/saospace-toan5/';
+        if (inp) inp.value = getDefaultShareURL();
         if (lbl) lbl.innerText = '✍️ Nội dung Thẻ Công thức (Quét bằng Zalo / Camera sẽ hiện ngay tấm thẻ này):';
         if (bCard) { bCard.style.background = '#059669'; bCard.style.color = '#ffffff'; }
         if (bLink) { bLink.style.background = '#e0f2fe'; bLink.style.color = '#0369a1'; }
     } else {
         if (inp) {
-            inp.value = 'https://mrvuvan.github.io/saospace-toan5/';
+            inp.value = getDefaultShareURL();
             inp.focus();
             inp.select();
         }
@@ -4800,10 +5206,11 @@ function setQRMode(mode) {
 
 function renderDynamicQRCode() {
     const inp = document.getElementById('qr-url-input');
-    const val = (inp && inp.value.trim()) ? inp.value.trim() : 'https://mrvuvan.github.io/saospace-toan5/';
+    const val = getQRShareURL();
     const qrCanvas = document.getElementById('qr-code-canvas');
     if (qrCanvas) {
-        drawQRCodeOnCanvas(qrCanvas, val, qrCanvas.width);
+        qrCanvas.getContext('2d').clearRect(0, 0, qrCanvas.width, qrCanvas.height);
+        if (val) drawQRCodeOnCanvas(qrCanvas, val, qrCanvas.width);
     }
 }
 
@@ -4822,8 +5229,8 @@ function closeQRShareModal() {
 }
 
 function downloadQRCodeCardImage() {
-    const inp = document.getElementById('qr-url-input');
-    const url = (inp && inp.value.trim()) ? inp.value.trim() : 'https://mrvuvan.github.io/saospace-toan5/';
+    const url = getQRShareURL(true);
+    if (!url) return;
     const c = document.createElement('canvas');
     c.width = 760;
     c.height = 920;
@@ -4855,10 +5262,10 @@ function downloadQRCodeCardImage() {
 
     ctx.fillStyle = '#1e3a8a';
     ctx.font = 'bold 23px Arial';
-    ctx.fillText('PHÒNG THÍ NGHIỆM HÌNH HỌC KHÔNG GIAN 3D – TOÁN 5', 380, 152);
+    ctx.fillText('PHÒNG THÍ NGHIỆM HÌNH HỌC KHÔNG GIAN 3D – TOÁN 5', 380, 152, 640);
     ctx.fillStyle = '#047857';
     ctx.font = 'bold 18px Arial';
-    ctx.fillText('GV: Lương Mai Sao | TH Hải Lựu - Phân hiệu Nhân Đạo (Phú Thọ)', 380, 184);
+    ctx.fillText('GV: Lương Mai Sao | TH Hải Lựu - Phân hiệu Nhân Đạo (Phú Thọ)', 380, 184, 640);
 
     // Draw high-res QR code in center (clean 100%, no overlay)
     const tempQR = document.createElement('canvas');
@@ -4872,10 +5279,10 @@ function downloadQRCodeCardImage() {
 
     ctx.fillStyle = '#0f172a';
     ctx.font = 'bold 20px Arial';
-    ctx.fillText('📲 Quét bằng Camera hoặc Zalo để nhận Thẻ Công thức / Mở Học liệu 3D', 380, 720);
+    ctx.fillText('📲 Quét bằng Camera hoặc Zalo để nhận Thẻ Công thức / Mở Học liệu 3D', 380, 720, 640);
     ctx.fillStyle = '#b45309';
     ctx.font = 'bold 18px Arial';
-    ctx.fillText('• Học liệu mở dùng chung  |  • Học sinh tự học tại nhà  |  • Kết nối Gia đình & Nhà trường', 380, 756);
+    ctx.fillText('• Học liệu mở dùng chung  |  • Học sinh tự học tại nhà  |  • Kết nối Gia đình & Nhà trường', 380, 756, 640);
 
     ctx.fillStyle = '#eff6ff';
     ctx.beginPath();
@@ -4897,34 +5304,43 @@ function downloadQRCodeCardImage() {
 }
 
 function downloadStandaloneOfflineApp() {
-    const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-    const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'SaoSpace_Toan5_TuHocTaiNha_Lop5A4.html';
-    a.click();
+    const snapshot = document.documentElement.cloneNode(true);
+    const shareInput = snapshot.querySelector('#qr-url-input');
+    if (shareInput) shareInput.setAttribute('value', getQRShareURL() || getDefaultShareURL());
+    snapshot.querySelectorAll('#qr-share-modal, #add-question-modal, #ceremony-modal').forEach(modal => { modal.style.display = 'none'; });
+    const blob = new Blob(['<!DOCTYPE html>\n' + snapshot.outerHTML], { type:'text/html;charset=utf-8' });
+    const objectURL = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = objectURL;
+    link.download = 'SaoSpace_Toan5_TuHocTaiNha_Lop5A4.html';
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(objectURL), 30000);
     playTone('success');
 }
 
-function copyOfficialWebLink() {
-    const inp = document.getElementById('qr-url-input');
-    const url = (inp && inp.value.trim()) ? inp.value.trim() : 'https://mrvuvan.github.io/saospace-toan5/';
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(url).then(() => {
-            alert("Đã sao chép đường link Học liệu Mở: " + url + "\nCô có thể dán gửi ngay qua Zalo nhóm lớp hoặc trình duyệt nhé!");
-        }).catch(() => {});
+async function copyOfficialWebLink() {
+    const url = getQRShareURL(true);
+    if (!url) return;
+    try {
+        await navigator.clipboard.writeText(url);
+        alert('Đã sao chép đường link Học liệu Mở: ' + url + '\nCô có thể dán gửi ngay qua Zalo nhóm lớp hoặc trình duyệt nhé!');
+    } catch (_) {
+        prompt('Sao chép đường link Học liệu Mở:', url);
     }
     playTone('success');
 }
 
-function copyZaloParentMessage() {
-    const inp = document.getElementById('qr-url-input');
-    const url = (inp && inp.value.trim()) ? inp.value.trim() : 'https://mrvuvan.github.io/saospace-toan5/';
+async function copyZaloParentMessage() {
+    const url = getQRShareURL(true);
+    if (!url) return;
     const msg = `🌟 [LỚP 5A4 - CÔ LƯƠNG MAI SAO] CỔNG HỌC LIỆU MỞ 3D & TỰ HỌC TẠI NHÀ 🌟\n🔗 Link mở trực tiếp trên điện thoại/máy tính: ${url}\n📲 Quý phụ huynh chỉ cần chạm vào đường link trên (hoặc quét Mã QR) để cùng con thực hành kéo thanh trượt quan sát khối hộp 3D, làm thí nghiệm bể cá, thả đá đo thể tích và đối đáp cùng Trợ lý AI Cô Sao tại nhà nhé! (Nếu gia đình không có mạng Internet, phụ huynh có thể mở tệp .html cô gửi kèm bên dưới).`;
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(msg).then(() => {
-            alert("Đã sao chép tin nhắn hướng dẫn kèm Link chính thức! Cô chỉ cần dán (Ctrl+V) vào nhóm Zalo Phụ huynh Lớp 5A4 nhé!");
-        }).catch(() => {});
+    try {
+        await navigator.clipboard.writeText(msg);
+        alert('Đã sao chép tin nhắn hướng dẫn kèm Link chính thức! Cô có thể dán vào nhóm Zalo phụ huynh.');
+    } catch (_) {
+        prompt('Sao chép tin nhắn hướng dẫn gửi phụ huynh:', msg);
     }
     playTone('success');
 }
@@ -5556,13 +5972,18 @@ function closeGrandCeremonyModal() {
 }
 
 function startConfettiFireworks() {
+    if (confettiAnimId) cancelAnimationFrame(confettiAnimId);
+    confettiAnimId = null;
+    const compact = window.matchMedia('(max-width:900px)').matches;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
     const canvas = document.getElementById('confetti-canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    if (reducedMotion) { ctx.clearRect(0, 0, canvas.width, canvas.height); return; }
     const particles = [];
     const colors = ['#fde047', '#f43f5e', '#10b981', '#38bdf8', '#a855f7', '#fb923c', '#ffffff'];
-    for (let i = 0; i < 130; i++) {
+    for (let i = 0; i < (compact ? 55 : 130); i++) {
         particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height - canvas.height,
@@ -5575,8 +5996,11 @@ function startConfettiFireworks() {
             vrot: (Math.random() - 0.5) * 0.15
         });
     }
-    function renderConfetti() {
-        if (document.getElementById('ceremony-modal').style.display === 'none') return;
+    let previousFrame = 0;
+    function renderConfetti(timestamp = 0) {
+        if (document.hidden || document.getElementById('ceremony-modal').style.display === 'none') { confettiAnimId = null; return; }
+        if (compact && timestamp - previousFrame < 32) { confettiAnimId = requestAnimationFrame(renderConfetti); return; }
+        previousFrame = timestamp;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         particles.forEach(p => {
             p.y += p.vy;
@@ -5599,6 +6023,8 @@ function startConfettiFireworks() {
 }
 
 function exportZaloCard() {
+    const sharedURL = getQRShareURL(true);
+    if (!sharedURL) return;
     playTone('success');
     const studentName = document.getElementById('card-student-name').innerText;
     speakVietnamese("Đã xuất ảnh Phiếu khen thưởng Bảng vàng Săn Sao 3 D cho " + studentName + " sẵn sàng gửi Zalo tới phụ huynh!", false);
@@ -5704,7 +6130,7 @@ function exportZaloCard() {
 
     // Vẽ thêm Mã QR Tự học tại nhà ngay góc trái dưới của Phiếu Khen Thưởng Zalo!
     const qrInp = document.getElementById('qr-url-input');
-    const qrUrl = (qrInp && qrInp.value.trim()) ? qrInp.value.trim() : 'https://mrvuvan.github.io/saospace-toan5/';
+    const qrUrl = sharedURL;
     const miniQR = document.createElement('canvas');
     miniQR.width = 96;
     miniQR.height = 96;
@@ -5738,6 +6164,7 @@ if ('speechSynthesis' in window) {
     window.speechSynthesis.onvoiceschanged = () => { window.speechSynthesis.getVoices(); };
 }
 
+initializeQRShareURL();
 updateStation1();
 updateStation2();
 updateStation3();
