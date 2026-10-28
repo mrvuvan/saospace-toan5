@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="saospace-build" content="2026-10-28-mobile">
-    <meta name="description" content="SaoSpace 5.0 - Học liệu mở hình học không gian 3D Toán 5 cùng cô Lương Mai Sao.">
     <title>SaoSpace 5.0: Phòng thí nghiệm Hình học không gian 3D cùng Trợ lý AI Gợi mở – Toán 5 (GV Lương Mai Sao)</title>
     <style>
         :root {
@@ -1067,85 +1065,6 @@
             border-radius: 12px;
             max-width: 100%;
         }
-        #qr-code-canvas { max-width:100%; height:auto; }
-        #qr-url-input { min-width:0; }
-        .qr-share-grid > * { min-width:0; }
-        @media (max-width:900px) {
-            .grid-2col { grid-template-columns:minmax(0,1fr) !important; }
-            .grid-2col > * { min-width:0; max-width:100%; }
-        }
-        @media (max-width:760px) {
-            header { padding:12px; }
-            .header-left, .header-title-row, .projector-toolbar { min-width:0; max-width:100%; }
-            .header-title-row h1 { font-size:18px; overflow-wrap:anywhere; }
-            .projector-toolbar select, .tool-pill-btn { min-width:0; max-width:100%; }
-            .tool-pill-btn { white-space:normal; text-align:left; }
-            .nav-tabs { grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; padding:8px; }
-            .tab-btn { min-width:0; }
-            .tab-btn:last-child { grid-column:1 / -1; }
-            .station { padding:10px 8px; }
-            .panel { padding:12px; min-width:0; }
-            .scoreboard, .kpi-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
-            .options-grid { grid-template-columns:minmax(0,1fr); }
-            .quiz-question-bar { flex-wrap:wrap; }
-            .formula-banner { padding:10px; font-size:16px; overflow-wrap:anywhere; }
-            .formula-banner div, .formula-banner span { min-width:0; max-width:100%; }
-            .formula-banner [style*="white-space"] { white-space:normal !important; }
-            .step-expr-pill, .step-ans-pill { white-space:normal; }
-            .viewport { min-width:0; max-width:100%; min-height:280px; }
-            .viewport-top-bar { position:static; width:100%; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
-            .viewport canvas { max-width:100%; height:auto; }
-            .control-row label { flex-wrap:wrap; gap:6px; }
-            #add-question-modal > div { width:100% !important; padding:12px !important; }
-            #add-question-modal [style*="grid-template-columns"] { grid-template-columns:minmax(0,1fr) !important; }
-            #add-question-modal .btn { min-width:0 !important; max-width:100%; }
-            #qr-share-modal { align-items:flex-start !important; padding:10px !important; }
-            #qr-share-modal > div { width:100% !important; padding:14px !important; margin:auto; }
-            #qr-share-modal h2 { font-size:17px !important; }
-            .qr-share-grid { grid-template-columns:minmax(0,1fr) !important; }
-        }
-
-        /* Mobile touch targets, bounded fields and lightweight rendering. */
-        button, select, input, a { -webkit-tap-highlight-color:rgba(37,99,235,.15); }
-        button, a { touch-action:manipulation; }
-        #qr-code-canvas { border-radius:0; }
-        .report-table-scroll { max-width:100%; overflow-x:auto; overscroll-behavior-x:contain; }
-        #qr-share-modal, #add-question-modal, #ceremony-modal { overscroll-behavior:contain; }
-        #qr-share-modal > div, #add-question-modal > div, #ceremony-modal > div { flex-shrink:0; margin:auto; }
-        @media (max-width:760px) {
-            .app-shell { width:100%; }
-            .station input:not([type="range"]), .station select, #add-question-modal input, #add-question-modal select, #qr-url-input { min-width:0; max-width:100%; font-size:16px !important; }
-            .btn, .speak-mini-btn, .mini-step-btn, .chip-btn, .tool-pill-btn { min-height:42px; }
-            input[type="range"] { min-height:32px; margin:3px 0 6px; }
-            .student-message-row, .certificate-input-row { flex-wrap:wrap; }
-            .student-message-row > input, .student-message-row > .btn, .certificate-input-row > input, .certificate-input-row > select { flex:1 1 100% !important; width:100%; min-width:0 !important; }
-            .voice-dialogue-header h4 { flex-wrap:wrap; }
-            .mic-btn { max-width:100%; white-space:normal; text-align:left; }
-            .team-card { min-width:0; padding:12px 8px; filter:none; }
-            .team-header-row { gap:5px; min-width:0; max-width:100%; }
-            .team-title-block { min-width:0; }
-            .team-card h4 { font-size:14px; }
-            .team-mascot-mini { width:34px; height:34px; animation:none; }
-            .team-mascot-mini svg { width:28px; height:28px; }
-            .team-badge-pill { font-size:9px; padding:2px 4px; overflow-wrap:anywhere; }
-            .team-btn-row { width:100%; gap:4px; }
-            .team-act-btn { min-width:0; white-space:normal; padding:8px 3px; font-size:12px; min-height:42px; }
-            .report-table-scroll .tt27-table { min-width:560px; }
-            .certificate-inner { padding:12px !important; }
-            .certificate-inner > div { flex-wrap:wrap; gap:6px; }
-            .cert-ribbon, .cert-seal, .cert-student-banner { max-width:100%; overflow-wrap:anywhere; }
-            #qr-share-modal, #add-question-modal, #ceremony-modal { align-items:flex-start !important; padding:10px !important; }
-            #qr-share-modal > div, #add-question-modal > div, #ceremony-modal > div { width:100% !important; max-width:100%; padding:14px !important; }
-            #qr-share-modal .btn, #add-question-modal .btn, #ceremony-modal .btn { min-width:0 !important; max-width:100%; }
-            #add-question-modal > div > div:last-child > div { flex-wrap:wrap; max-width:100%; }
-        }
-        @media (max-width:380px) { .scoreboard { grid-template-columns:minmax(0,1fr); } }
-        @media (hover:none) {
-            .tab-btn:hover, .team-card:hover, .team-act-btn:hover, .mini-step-btn:hover, .mic-btn:hover { transform:none; filter:none; }
-        }
-        @media (prefers-reduced-motion:reduce) {
-            *, *::before, *::after { animation:none !important; transition:none !important; scroll-behavior:auto !important; }
-        }
     </style>
 </head>
 <body style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);">
@@ -1231,23 +1150,23 @@
                 <h3>TRẠM 1: ĐIỀU CHỈNH KÍCH THƯỚC & GÓC NHÌN 3D</h3>
                 <div class="control-row">
                     <label>Chiều dài (a): <span class="val-pill"><span id="s1-a-val">6</span> dm</span></label>
-                    <input type="range" id="s1-a" min="2" max="10" value="6" oninput="scheduleStationUpdate(1)">
+                    <input type="range" id="s1-a" min="2" max="10" value="6" oninput="updateStation1()">
                 </div>
                 <div class="control-row">
                     <label>Chiều rộng (b): <span class="val-pill"><span id="s1-b-val">4</span> dm</span></label>
-                    <input type="range" id="s1-b" min="2" max="8" value="4" oninput="scheduleStationUpdate(1)">
+                    <input type="range" id="s1-b" min="2" max="8" value="4" oninput="updateStation1()">
                 </div>
                 <div class="control-row">
                     <label>Chiều cao (c): <span class="val-pill"><span id="s1-c-val">5</span> dm</span></label>
-                    <input type="range" id="s1-c" min="2" max="8" value="5" oninput="scheduleStationUpdate(1)">
+                    <input type="range" id="s1-c" min="2" max="8" value="5" oninput="updateStation1()">
                 </div>
                 <div class="control-row">
                     <label>Xoay ngang 360°: <span class="val-pill"><span id="s1-ry-val">35</span>°</span></label>
-                    <input type="range" id="s1-ry" min="-180" max="180" value="35" oninput="scheduleStationUpdate(1)">
+                    <input type="range" id="s1-ry" min="-180" max="180" value="35" oninput="updateStation1()">
                 </div>
                 <div class="control-row">
                     <label>Góc nhìn từ trên xuống: <span class="val-pill"><span id="s1-rx-val">-22</span>°</span></label>
-                    <input type="range" id="s1-rx" min="-75" max="45" value="-22" oninput="scheduleStationUpdate(1)">
+                    <input type="range" id="s1-rx" min="-75" max="45" value="-22" oninput="updateStation1()">
                 </div>
                 <div class="btn-group">
                     <button class="btn btn-accent" onclick="toggleUnfold()" id="btn-unfold">BUNG TRẢI PHẲNG 6 MẶT</button>
@@ -1305,19 +1224,19 @@
                 </div>
                 <div class="control-row">
                     <label><span id="s2-label-a">Chiều dài bể cá (a):</span> <span class="val-pill"><span id="s2-a-val">8</span> <span class="s2-unit-text">dm</span></span></label>
-                    <input type="range" id="s2-a" min="4" max="12" value="8" oninput="scheduleStationUpdate(2)">
+                    <input type="range" id="s2-a" min="4" max="12" value="8" oninput="updateStation2()">
                 </div>
                 <div class="control-row">
                     <label><span id="s2-label-b">Chiều rộng bể cá (b):</span> <span class="val-pill"><span id="s2-b-val">5</span> <span class="s2-unit-text">dm</span></span></label>
-                    <input type="range" id="s2-b" min="3" max="10" value="5" oninput="scheduleStationUpdate(2)">
+                    <input type="range" id="s2-b" min="3" max="10" value="5" oninput="updateStation2()">
                 </div>
                 <div class="control-row">
                     <label><span id="s2-label-c">Chiều cao bể cá (c):</span> <span class="val-pill"><span id="s2-c-val">6</span> <span class="s2-unit-text">dm</span></span></label>
-                    <input type="range" id="s2-c" min="3" max="8" value="6" oninput="scheduleStationUpdate(2)">
+                    <input type="range" id="s2-c" min="3" max="8" value="6" oninput="updateStation2()">
                 </div>
                 <div class="control-row" id="door-control" style="display:none;">
                     <label>Diện tích Cửa chính & Cửa sổ (trừ đi): <span class="val-pill" style="background:#dc2626;"><span id="s2-door-val">9</span> m²</span></label>
-                    <input type="range" id="s2-door" min="4" max="18" value="9" step="1" oninput="scheduleStationUpdate(2)">
+                    <input type="range" id="s2-door" min="4" max="18" value="9" step="1" oninput="updateStation2()">
                 </div>
                 <button class="speak-mini-btn" style="width:100%; margin-top:4px;" onclick="speakStation2Status()">🔊 AI Đọc thông số mô hình hiện tại</button>
 
@@ -1370,28 +1289,28 @@
                 </div>
                 <div class="control-row">
                     <label><span id="s3-lbl-a">Chiều dài đáy bể (a):</span> <span class="val-pill"><span id="s3-a-val">50 cm</span></span></label>
-                    <input type="range" id="s3-a" min="3" max="8" value="5" oninput="scheduleStationUpdate(3)">
+                    <input type="range" id="s3-a" min="3" max="8" value="5" oninput="updateStation3()">
                 </div>
                 <div class="control-row">
                     <label><span id="s3-lbl-b">Chiều rộng đáy bể (b):</span> <span class="val-pill"><span id="s3-b-val">40 cm</span></span></label>
-                    <input type="range" id="s3-b" min="2" max="6" value="4" oninput="scheduleStationUpdate(3)">
+                    <input type="range" id="s3-b" min="2" max="6" value="4" oninput="updateStation3()">
                 </div>
                 <div class="control-row">
                     <label><span id="s3-lbl-c">Chiều cao bể (c):</span> <span class="val-pill"><span id="s3-c-val">60 cm</span></span></label>
-                    <input type="range" id="s3-c" min="5" max="8" value="6" oninput="scheduleStationUpdate(3)">
+                    <input type="range" id="s3-c" min="5" max="8" value="6" oninput="updateStation3()">
                 </div>
 
                 <div id="s3-cube-controls" style="display:none;">
                     <div class="control-row">
                         <label>Số lớp khối 1 dm³ đã xếp: <span class="val-pill"><span id="s3-layer-val">2</span> lớp</span></label>
-                        <input type="range" id="s3-layer" min="1" max="8" value="2" oninput="scheduleStationUpdate(3)">
+                        <input type="range" id="s3-layer" min="1" max="8" value="2" oninput="updateStation3()">
                     </div>
                 </div>
 
                 <div id="s3-water-controls">
                     <div class="control-row">
                         <label>Mực nước ban đầu (h₁): <span class="val-pill" style="background:#0284c7;"><span id="s3-water-val">25</span> cm</span></label>
-                        <input type="range" id="s3-water" min="15" max="38" value="25" step="1" oninput="scheduleStationUpdate(3)">
+                        <input type="range" id="s3-water" min="15" max="38" value="25" step="1" oninput="updateStation3()">
                     </div>
                     <div class="control-row">
                         <label>Chọn hòn đá thả chìm hoàn toàn:</label>
@@ -1635,7 +1554,7 @@
                     <button class="speak-mini-btn" style="background:#fee2e2; color:#b91c1c; border-color:#f87171;" onclick="stopSpeaking()" title="Dừng giọng đọc ngay">⏹️ Dừng đọc</button>
                 </div>
             </div>
-            <div class="student-message-row" style="display:flex; gap:8px; margin-bottom:10px;">
+            <div style="display:flex; gap:8px; margin-bottom:10px;">
                 <input type="text" id="student-speech-input" placeholder="Gõ bất kỳ câu hỏi thường ngày, cảm xúc hoặc cách giải toán của học sinh vào đây rồi bấm Enter..." style="flex:1; padding:10px 14px; font-size:16px; border-radius:10px; border:2px solid #38bdf8; font-weight:700; background:#ffffff;" onkeydown="if(event.key==='Enter') processStudentUtterance(this.value)">
                 <button class="btn btn-primary" style="flex:0; min-width:165px; background:linear-gradient(135deg, #0284c7, #2563eb);" onclick="processStudentUtterance(document.getElementById('student-speech-input').value)">💬 Gửi AI Đối đáp</button>
             </div>
@@ -1766,16 +1685,16 @@
 
                 <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:10px 12px; margin-bottom:12px;">
                     <div class="control-row" style="margin-bottom:8px;">
-                        <label>1. Số HS phân biệt đúng S_xq & S_tp (qua bảng con): <span class="val-pill" style="background:#059669;"><span id="in-sxq-val">27</span>/29 HS (<span id="in-sxq-pct">93,1%</span>)</span></label>
-                        <input type="range" id="in-sxq" min="10" max="29" value="27" oninput="recalcStation5()">
+                        <label>1. Số HS phân biệt đúng S_xq & S_tp (qua bảng con): <span class="val-pill" style="background:#059669;"><span id="in-sxq-val">28</span>/29 HS (<span id="in-sxq-pct">96,6%</span>)</span></label>
+                        <input type="range" id="in-sxq" min="10" max="29" value="28" oninput="recalcStation5()">
                     </div>
                     <div class="control-row" style="margin-bottom:8px;">
-                        <label>2. Số HS giải đúng bài toán thực tế (Sơn phòng, Thả đá): <span class="val-pill" style="background:#d97706;"><span id="in-real-val">25</span>/29 HS (<span id="in-real-pct">86,2%</span>)</span></label>
-                        <input type="range" id="in-real" min="8" max="29" value="25" oninput="recalcStation5()">
+                        <label>2. Số HS giải đúng bài toán thực tế (Sơn phòng, Thả đá): <span class="val-pill" style="background:#d97706;"><span id="in-real-val">26</span>/29 HS (<span id="in-real-pct">89,7%</span>)</span></label>
+                        <input type="range" id="in-real" min="8" max="29" value="26" oninput="recalcStation5()">
                     </div>
                     <div class="control-row" style="margin-bottom:4px;">
-                        <label>3. Số HS đạt Mức Hoàn thành tốt (Sao Đỏ - TT27): <span class="val-pill" style="background:#dc2626;"><span id="in-htt-val">19</span>/29 HS (<span id="in-htt-pct">65,5%</span>)</span></label>
-                        <input type="range" id="in-htt" min="5" max="29" value="19" oninput="recalcStation5()">
+                        <label>3. Số HS đạt Mức Hoàn thành tốt (Sao Đỏ - TT27): <span class="val-pill" style="background:#dc2626;"><span id="in-htt-val">22</span>/29 HS (<span id="in-htt-pct">75,9%</span>)</span></label>
+                        <input type="range" id="in-htt" min="5" max="29" value="22" oninput="recalcStation5()">
                     </div>
                     <div style="font-size:13px; color:#1e40af; margin-top:6px;">
                         🔗 <strong>Đồng bộ trực tiếp từ Trạm 4:</strong> Điểm 4 Tổ hiện tại (<span id="sync-team-summary">Tổ 1: 0đ | Tổ 2: 0đ | Tổ 3: 0đ | Tổ 4: 0đ</span>)
@@ -1786,7 +1705,7 @@
                     <button class="btn btn-primary" onclick="generateTT27Comments()">✍️ AI Dự Thảo Nhận Xét Theo Minh Chứng – GV Phê Duyệt (Chuẩn TT27 & TT89/2026)</button>
                     <button class="btn btn-success" onclick="speakTT27Summary()">🔊 AI Đọc Báo Cáo Số Liệu Động</button>
                 </div>
-                <div class="report-table-scroll" tabindex="0" aria-label="Bảng nhận xét, có thể cuộn ngang trên điện thoại"><table class="tt27-table">
+                <table class="tt27-table">
                     <thead>
                         <tr>
                             <th>Phân Loại Thông Tư 27</th>
@@ -1797,12 +1716,12 @@
                     <tbody id="tt27-tbody">
                         <tr>
                             <td><strong style="color:#dc2626;">🔴 ★★★ Sao Đỏ (Hoàn thành tốt)</strong></td>
-                            <td><strong id="tbl-htt-cell">19/29 HS (65,5%)</strong></td>
+                            <td><strong id="tbl-htt-cell">22/29 HS (75,9%)</strong></td>
                             <td>Nắm vững bản chất hình học không gian 3D; vận dụng linh hoạt công thức tính diện tích sơn phòng học trừ cửa và bài toán thả đá đo mực nước; tự tin phản biện trước lớp.</td>
                         </tr>
                         <tr>
                             <td><strong style="color:#d97706;">🟡 ★★ Sao Vàng (Hoàn thành)</strong></td>
-                            <td><strong id="tbl-ht-cell">10/29 HS (34,5%)</strong></td>
+                            <td><strong id="tbl-ht-cell">7/29 HS (24,1%)</strong></td>
                             <td>Phân biệt đúng 4 mặt xung quanh và 2 mặt đáy qua mô hình trải phẳng 3D; tính đúng diện tích bể cá không nắp 5 mặt; cần rèn thêm kỹ năng tính nhẩm số thập phân.</td>
                         </tr>
                         <tr>
@@ -1811,7 +1730,7 @@
                             <td>Nhờ gợi ý bắc giàn từng bước và giọng đọc của Trợ lý AI trên màn chiếu, 100% học sinh vượt qua rào cản tưởng tượng không gian.</td>
                         </tr>
                     </tbody>
-                </table></div>
+                </table>
             </div>
 
             <div class="panel">
@@ -1829,7 +1748,7 @@
                 </div>
                 <div class="control-row" style="margin-bottom:8px;">
                     <label>2. Hoặc gõ trực tiếp tên Học sinh bất kỳ tại lớp + Chọn Danh hiệu:</label>
-                    <div class="certificate-input-row" style="display:flex; gap:6px;">
+                    <div style="display:flex; gap:6px;">
                         <input type="text" id="custom-student-name" placeholder="Gõ tên học sinh lớp 5A4..." style="flex:1.2; padding:7px 10px; border-radius:8px; border:2px solid #3b82f6; font-size:14px; font-weight:700;" oninput="updateCuteCardCustom(this.value)">
                         <select id="award-title-select" onchange="updateAwardTitle()" style="flex:1; padding:7px 8px; border-radius:8px; border:2px solid #ec4899; font-size:13.5px; font-weight:700; background:#fdf2f8; color:#9d174d;">
                             <option value="🌟 CHIẾN BINH SĂN SAO ĐỎ XUẤT SẮC 🌟">🏆 Chiến Binh Sao Đỏ</option>
@@ -1963,7 +1882,7 @@
             <button class="btn btn-danger" style="flex:0; min-width:115px; padding:8px 14px;" onclick="closeQRShareModal()">✖️ Đóng lại</button>
         </div>
 
-        <div class="qr-share-grid" style="display:grid; grid-template-columns: 330px 1fr; gap:20px; align-items:start;">
+        <div style="display:grid; grid-template-columns: 330px 1fr; gap:20px; align-items:start;">
             <!-- CỘT TRÁI: MÃ QR CHUẨN ISO MỞ THẲNG LINK WEB CHÍNH THỨC -->
             <div style="background:#ffffff; border:3px solid #f59e0b; border-radius:18px; padding:16px; text-align:center; box-shadow:0 8px 20px rgba(245,158,11,0.18);">
                 <div style="background:linear-gradient(90deg, #dc2626, #ea580c); color:#fde047; font-weight:700; font-size:13.5px; padding:5px 14px; border-radius:999px; display:inline-block; margin-bottom:10px;">
@@ -1973,10 +1892,9 @@
                     <canvas id="qr-code-canvas" width="240" height="240"></canvas>
                 </div>
                 <div style="margin-top:10px; text-align:left;">
-                    <label for="qr-url-input" style="font-size:12.5px; font-weight:700; color:#1e3a8a;">🔗 Đường link Học liệu Mở trực tuyến:</label>
-                    <input type="url" inputmode="url" autocapitalize="off" spellcheck="false" aria-describedby="qr-share-status" id="qr-url-input" value="https://mrvuvan.github.io/saospace-toan5/" oninput="renderDynamicQRCode()" style="width:100%; padding:8px 10px; margin-top:4px; border:2px solid #0284c7; border-radius:8px; font-size:13.5px; font-weight:700; color:#0f172a;">
+                    <label style="font-size:12.5px; font-weight:700; color:#1e3a8a;">🔗 Đường link Học liệu Mở trực tuyến:</label>
+                    <input type="text" id="qr-url-input" value="https://mrvuvan.github.io/saospace-toan5/" oninput="renderDynamicQRCode()" style="width:100%; padding:8px 10px; margin-top:4px; border:2px solid #0284c7; border-radius:8px; font-size:13.5px; font-weight:700; color:#0f172a;">
                 </div>
-                <p id="qr-share-status" role="status" aria-live="polite" style="font-size:13px; line-height:1.5; color:#0369a1; overflow-wrap:anywhere;"></p>
                 <div style="display:flex; flex-direction:column; gap:7px; margin-top:10px;">
                     <button class="btn btn-primary" style="width:100%; font-size:13.5px; padding:8px;" onclick="copyOfficialWebLink()">
                         📋 Sao chép Link Học Liệu Mở
@@ -2150,69 +2068,6 @@
 </div>
 
 <script>
-// The hosted page supplies its own URL; the published address also works in offline exports.
-const SAOSPACE_PUBLIC_URL = 'https://mrvuvan.github.io/saospace-toan5/';
-
-function getDefaultShareURL() {
-    const current = new URL(window.location.href);
-    if (['https:', 'http:'].includes(current.protocol) &&
-        !['localhost', '127.0.0.1', '[::1]', '0.0.0.0'].includes(current.hostname)) {
-        current.hash = '';
-        current.search = '';
-        current.pathname = current.pathname.replace(/\/index\.html$/, '/');
-        return current.href;
-    }
-    return SAOSPACE_PUBLIC_URL;
-}
-
-function getQRShareURL(showError = false) {
-    const inp = document.getElementById('qr-url-input');
-    const value = (inp && inp.value.trim()) || getDefaultShareURL();
-    const status = document.getElementById('qr-share-status');
-    try {
-        const parsed = new URL(value);
-        if (!['https:', 'http:'].includes(parsed.protocol) || parsed.username || parsed.password ||
-            ['localhost', '127.0.0.1', '[::1]', '0.0.0.0'].includes(parsed.hostname) ||
-            /(^|\.)github\.com$/i.test(parsed.hostname)) {
-            throw new Error('Hãy dùng địa chỉ website học tập công khai (https://…github.io/…), để học sinh có thể mở trực tiếp.');
-        }
-        if (new TextEncoder().encode(parsed.href).length > 134) {
-            throw new Error('Đường dẫn quá dài để tạo QR. Hãy dùng địa chỉ gốc của trang học tập (tối đa 134 byte).');
-        }
-        if (status) status.textContent = 'Mã QR dẫn đến: ' + parsed.href;
-        return parsed.href;
-    } catch (error) {
-        const message = error instanceof TypeError ? 'Hãy nhập địa chỉ website đầy đủ, bắt đầu bằng https://.' : error.message;
-        if (status) status.textContent = message;
-        if (showError) alert(message);
-        return '';
-    }
-}
-
-function initializeQRShareURL() {
-    const inp = document.getElementById('qr-url-input');
-    if (inp) inp.value = getDefaultShareURL();
-}
-
-
-// Coalesce slider updates to one draw per animation frame, retaining the final value.
-const pendingStationUpdates = new Set();
-let stationUpdateFrame = null;
-function scheduleStationUpdate(station) {
-    pendingStationUpdates.add(station);
-    if (stationUpdateFrame !== null) return;
-    stationUpdateFrame = requestAnimationFrame(() => {
-        stationUpdateFrame = null;
-        const stations = [...pendingStationUpdates];
-        pendingStationUpdates.clear();
-        for (const number of stations) {
-            if (number === 1) updateStation1();
-            else if (number === 2) updateStation2();
-            else if (number === 3) updateStation3();
-        }
-    });
-}
-
 // ================= PROJECTOR FULLSCREEN & ZOOM CONTROLS =================
 let currentZoom = 1.0;
 
@@ -2905,7 +2760,7 @@ function playTone(type) {
 
 function speakCurrentStationIntro() {
     const intros = [
-        "Chào các em học sinh lớp 5 A 4 thân yêu! Chúng mình cùng bắt đầu với Trạm 1 nhé! Các em hãy nhìn lên màn chiếu nào: Khi cô bung chiếc hộp ra, 4 mặt xung quanh sẽ có màu xanh, còn 2 mặt đáy có màu cam rất rõ ràng, đúng không nào?",
+        "Chào các em học sinh lớp 5 A 4 thân yêu! Chúng mình cùng bắt đầu với Trạm 1 nhé! Các em hãy nhìn lên màn chiếu nào: Khi cô bung chiếc hộp ra thành 6 mặt phẳng, những mặt nào có diện tích bằng nhau thì màu sắc sẽ giống nhau, giúp ta dễ dàng nhận ra các cặp mặt đối diện bằng nhau!",
         "Chào mừng các em đến với Trạm 2! Ở trạm này, chúng mình sẽ cùng giúp các bác thợ tính diện tích sơn phòng học lớp 5 A 4 nhé! Các em nhớ nhé: Chúng mình chỉ sơn 4 bức tường và trần nhà thôi, không sơn sàn nhà, và nhớ trừ đi phần cửa chính với cửa sổ nhé!",
         "Bây giờ cô trò mình cùng làm một thí nghiệm thật thú vị ở Trạm 3 nào! Khi cô thả hòn đá chìm xuống đáy bể, các em hãy quan sát xem mực nước dâng thêm bao nhiêu nhé! Phần nước màu cam dâng lên chính là thể tích của hòn đá đấy các em ạ!",
         "Chào mừng 4 Tổ của lớp 5 A 4 đến với Đấu trường Săn Sao ở Trạm 4! Ở trạm này, khi các em bấm Micro nói cách làm bài, cô A I sẽ lắng nghe và trò chuyện trực tiếp với các em ngay lập tức! Tổ nào giải thích đúng bản chất sẽ được thưởng nóng 15 điểm đấy nhé!",
@@ -3407,7 +3262,7 @@ function toggleUnfold() {
     if (isUnfolded) {
         btn.innerText = 'GẬP LẠI THÀNH KHỐI 3D';
         updateStation1();
-        speakVietnamese("Đã bung trải phẳng 6 mặt của hình hộp chữ nhật. Các em hãy quan sát 4 mặt xung quanh màu xanh và 2 mặt đáy màu cam.");
+        speakVietnamese("Đã bung trải phẳng 6 mặt của hình khối. Những mặt nào có diện tích bằng nhau thì màu sắc sẽ giống nhau.");
     } else {
         btn.innerText = 'BUNG TRẢI PHẲNG 6 MẶT';
         updateStation1();
@@ -4725,7 +4580,6 @@ function speakGrandCeremonyHonor() {
 
 // ================= REAL ISO/IEC 18004 QR CODE GENERATOR (100% SCANNABLE BY ZALO & CAMERA IN 0.1s) =================
 function generateQRMatrix(text) {
-    if (new TextEncoder().encode(text).length > 134) throw new RangeError('QR URL exceeds 134 bytes.');
     const data = Array.from(new TextEncoder().encode(text));
     // ISO/IEC 18004 Table 9 (ECC Level L) from Version 1 to Version 6 (up to 134 bytes of text/URL)
     const V_INFO = [
@@ -4896,7 +4750,7 @@ function generateQRMatrix(text) {
 function drawQRCodeOnCanvas(canvas, text, sizePx) {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const content = (text && text.trim()) ? text.trim() : getDefaultShareURL();
+    const content = (text && text.trim()) ? text.trim() : 'https://mrvuvan.github.io/saospace-toan5/';
     const mat = generateQRMatrix(content);
     const N = mat.length;
     const margin = 4; // Chuẩn Quiet Zone = 4 modules giúp mọi Camera nhận diện nhanh gấp 3 lần!
@@ -4926,13 +4780,13 @@ function setQRMode(mode) {
     const bCard = document.getElementById('btn-qrmode-card');
     const bLink = document.getElementById('btn-qrmode-link');
     if (mode === 'card') {
-        if (inp) inp.value = getDefaultShareURL();
+        if (inp) inp.value = 'https://mrvuvan.github.io/saospace-toan5/';
         if (lbl) lbl.innerText = '✍️ Nội dung Thẻ Công thức (Quét bằng Zalo / Camera sẽ hiện ngay tấm thẻ này):';
         if (bCard) { bCard.style.background = '#059669'; bCard.style.color = '#ffffff'; }
         if (bLink) { bLink.style.background = '#e0f2fe'; bLink.style.color = '#0369a1'; }
     } else {
         if (inp) {
-            inp.value = getDefaultShareURL();
+            inp.value = 'https://mrvuvan.github.io/saospace-toan5/';
             inp.focus();
             inp.select();
         }
@@ -4946,11 +4800,10 @@ function setQRMode(mode) {
 
 function renderDynamicQRCode() {
     const inp = document.getElementById('qr-url-input');
-    const val = getQRShareURL();
+    const val = (inp && inp.value.trim()) ? inp.value.trim() : 'https://mrvuvan.github.io/saospace-toan5/';
     const qrCanvas = document.getElementById('qr-code-canvas');
     if (qrCanvas) {
-        qrCanvas.getContext('2d').clearRect(0, 0, qrCanvas.width, qrCanvas.height);
-        if (val) drawQRCodeOnCanvas(qrCanvas, val, qrCanvas.width);
+        drawQRCodeOnCanvas(qrCanvas, val, qrCanvas.width);
     }
 }
 
@@ -4969,8 +4822,8 @@ function closeQRShareModal() {
 }
 
 function downloadQRCodeCardImage() {
-    const url = getQRShareURL(true);
-    if (!url) return;
+    const inp = document.getElementById('qr-url-input');
+    const url = (inp && inp.value.trim()) ? inp.value.trim() : 'https://mrvuvan.github.io/saospace-toan5/';
     const c = document.createElement('canvas');
     c.width = 760;
     c.height = 920;
@@ -5002,10 +4855,10 @@ function downloadQRCodeCardImage() {
 
     ctx.fillStyle = '#1e3a8a';
     ctx.font = 'bold 23px Arial';
-    ctx.fillText('PHÒNG THÍ NGHIỆM HÌNH HỌC KHÔNG GIAN 3D – TOÁN 5', 380, 152, 640);
+    ctx.fillText('PHÒNG THÍ NGHIỆM HÌNH HỌC KHÔNG GIAN 3D – TOÁN 5', 380, 152);
     ctx.fillStyle = '#047857';
     ctx.font = 'bold 18px Arial';
-    ctx.fillText('GV: Lương Mai Sao | TH Hải Lựu - Phân hiệu Nhân Đạo (Phú Thọ)', 380, 184, 640);
+    ctx.fillText('GV: Lương Mai Sao | TH Hải Lựu - Phân hiệu Nhân Đạo (Phú Thọ)', 380, 184);
 
     // Draw high-res QR code in center (clean 100%, no overlay)
     const tempQR = document.createElement('canvas');
@@ -5019,10 +4872,10 @@ function downloadQRCodeCardImage() {
 
     ctx.fillStyle = '#0f172a';
     ctx.font = 'bold 20px Arial';
-    ctx.fillText('📲 Quét bằng Camera hoặc Zalo để nhận Thẻ Công thức / Mở Học liệu 3D', 380, 720, 640);
+    ctx.fillText('📲 Quét bằng Camera hoặc Zalo để nhận Thẻ Công thức / Mở Học liệu 3D', 380, 720);
     ctx.fillStyle = '#b45309';
     ctx.font = 'bold 18px Arial';
-    ctx.fillText('• Học liệu mở dùng chung  |  • Học sinh tự học tại nhà  |  • Kết nối Gia đình & Nhà trường', 380, 756, 640);
+    ctx.fillText('• Học liệu mở dùng chung  |  • Học sinh tự học tại nhà  |  • Kết nối Gia đình & Nhà trường', 380, 756);
 
     ctx.fillStyle = '#eff6ff';
     ctx.beginPath();
@@ -5044,43 +4897,34 @@ function downloadQRCodeCardImage() {
 }
 
 function downloadStandaloneOfflineApp() {
-    const snapshot = document.documentElement.cloneNode(true);
-    const shareInput = snapshot.querySelector('#qr-url-input');
-    if (shareInput) shareInput.setAttribute('value', getQRShareURL() || getDefaultShareURL());
-    snapshot.querySelectorAll('#qr-share-modal, #add-question-modal, #ceremony-modal').forEach(modal => { modal.style.display = 'none'; });
-    const blob = new Blob(['<!DOCTYPE html>\n' + snapshot.outerHTML], { type:'text/html;charset=utf-8' });
-    const objectURL = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = objectURL;
-    link.download = 'SaoSpace_Toan5_TuHocTaiNha_Lop5A4.html';
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    setTimeout(() => URL.revokeObjectURL(objectURL), 30000);
+    const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'SaoSpace_Toan5_TuHocTaiNha_Lop5A4.html';
+    a.click();
     playTone('success');
 }
 
-async function copyOfficialWebLink() {
-    const url = getQRShareURL(true);
-    if (!url) return;
-    try {
-        await navigator.clipboard.writeText(url);
-        alert('Đã sao chép đường link Học liệu Mở: ' + url + '\nCô có thể dán gửi ngay qua Zalo nhóm lớp hoặc trình duyệt nhé!');
-    } catch (_) {
-        prompt('Sao chép đường link Học liệu Mở:', url);
+function copyOfficialWebLink() {
+    const inp = document.getElementById('qr-url-input');
+    const url = (inp && inp.value.trim()) ? inp.value.trim() : 'https://mrvuvan.github.io/saospace-toan5/';
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(() => {
+            alert("Đã sao chép đường link Học liệu Mở: " + url + "\nCô có thể dán gửi ngay qua Zalo nhóm lớp hoặc trình duyệt nhé!");
+        }).catch(() => {});
     }
     playTone('success');
 }
 
-async function copyZaloParentMessage() {
-    const url = getQRShareURL(true);
-    if (!url) return;
+function copyZaloParentMessage() {
+    const inp = document.getElementById('qr-url-input');
+    const url = (inp && inp.value.trim()) ? inp.value.trim() : 'https://mrvuvan.github.io/saospace-toan5/';
     const msg = `🌟 [LỚP 5A4 - CÔ LƯƠNG MAI SAO] CỔNG HỌC LIỆU MỞ 3D & TỰ HỌC TẠI NHÀ 🌟\n🔗 Link mở trực tiếp trên điện thoại/máy tính: ${url}\n📲 Quý phụ huynh chỉ cần chạm vào đường link trên (hoặc quét Mã QR) để cùng con thực hành kéo thanh trượt quan sát khối hộp 3D, làm thí nghiệm bể cá, thả đá đo thể tích và đối đáp cùng Trợ lý AI Cô Sao tại nhà nhé! (Nếu gia đình không có mạng Internet, phụ huynh có thể mở tệp .html cô gửi kèm bên dưới).`;
-    try {
-        await navigator.clipboard.writeText(msg);
-        alert('Đã sao chép tin nhắn hướng dẫn kèm Link chính thức! Cô có thể dán vào nhóm Zalo phụ huynh.');
-    } catch (_) {
-        prompt('Sao chép tin nhắn hướng dẫn gửi phụ huynh:', msg);
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(msg).then(() => {
+            alert("Đã sao chép tin nhắn hướng dẫn kèm Link chính thức! Cô chỉ cần dán (Ctrl+V) vào nhóm Zalo Phụ huynh Lớp 5A4 nhé!");
+        }).catch(() => {});
     }
     playTone('success');
 }
@@ -5712,18 +5556,13 @@ function closeGrandCeremonyModal() {
 }
 
 function startConfettiFireworks() {
-    if (confettiAnimId) cancelAnimationFrame(confettiAnimId);
-    confettiAnimId = null;
-    const compact = window.matchMedia('(max-width:760px)').matches;
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
     const canvas = document.getElementById('confetti-canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    if (reducedMotion) { ctx.clearRect(0, 0, canvas.width, canvas.height); return; }
     const particles = [];
     const colors = ['#fde047', '#f43f5e', '#10b981', '#38bdf8', '#a855f7', '#fb923c', '#ffffff'];
-    for (let i = 0; i < (compact ? 55 : 130); i++) {
+    for (let i = 0; i < 130; i++) {
         particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height - canvas.height,
@@ -5736,11 +5575,8 @@ function startConfettiFireworks() {
             vrot: (Math.random() - 0.5) * 0.15
         });
     }
-    let previousFrame = 0;
-    function renderConfetti(timestamp = 0) {
-        if (document.hidden || document.getElementById('ceremony-modal').style.display === 'none') { confettiAnimId = null; return; }
-        if (compact && timestamp - previousFrame < 32) { confettiAnimId = requestAnimationFrame(renderConfetti); return; }
-        previousFrame = timestamp;
+    function renderConfetti() {
+        if (document.getElementById('ceremony-modal').style.display === 'none') return;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         particles.forEach(p => {
             p.y += p.vy;
@@ -5763,8 +5599,6 @@ function startConfettiFireworks() {
 }
 
 function exportZaloCard() {
-    const sharedURL = getQRShareURL(true);
-    if (!sharedURL) return;
     playTone('success');
     const studentName = document.getElementById('card-student-name').innerText;
     speakVietnamese("Đã xuất ảnh Phiếu khen thưởng Bảng vàng Săn Sao 3 D cho " + studentName + " sẵn sàng gửi Zalo tới phụ huynh!", false);
@@ -5870,7 +5704,7 @@ function exportZaloCard() {
 
     // Vẽ thêm Mã QR Tự học tại nhà ngay góc trái dưới của Phiếu Khen Thưởng Zalo!
     const qrInp = document.getElementById('qr-url-input');
-    const qrUrl = sharedURL;
+    const qrUrl = (qrInp && qrInp.value.trim()) ? qrInp.value.trim() : 'https://mrvuvan.github.io/saospace-toan5/';
     const miniQR = document.createElement('canvas');
     miniQR.width = 96;
     miniQR.height = 96;
@@ -5904,7 +5738,6 @@ if ('speechSynthesis' in window) {
     window.speechSynthesis.onvoiceschanged = () => { window.speechSynthesis.getVoices(); };
 }
 
-initializeQRShareURL();
 updateStation1();
 updateStation2();
 updateStation3();
